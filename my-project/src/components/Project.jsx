@@ -1,6 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const Project = () => {
+  const navigate = useNavigate();
+
+  const handleViewProject = () => {
+    navigate("/ProjectDetail");
+  };
+
   const projects = [
     {
       title: "Portfolio",
@@ -61,7 +69,10 @@ const Project = () => {
                   {project.title}
                 </h1>
                 <p className="text-sm md:text-base">{project.description}</p>
-                <button className="bg-[#D37A54] px-4 py-2 w-[120px] sm:w-[150px] font-bold text-white rounded-lg font-SourceSans3">
+                <button
+                  onClick = {handleViewProject}
+                  className="bg-[#D37A54] px-4 py-2 w-[120px] sm:w-[150px] font-bold text-white rounded-lg font-SourceSans3 hover:bg-[#DA9171]"
+                >
                   VIEW
                 </button>
               </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll";
 
 const About = () => {
   return (
@@ -162,10 +163,17 @@ const About = () => {
             </div>
           </div>
 
-          <div className="flex  mt-12 lg:mt-20 mb-8 lg:mb-24">
-            <button className="bg-[#D37A54] p-3 w-[120px] sm:w-[150px] font-bold text-white rounded-lg font-SourceSans3">
-              CONTACT
-            </button>
+          <div className="flex mt-12 lg:mt-20 mb-8 lg:mb-24">
+            <Link
+             to="contact"
+             smooth={true}
+             offset={-70}
+             duration={500}
+            >
+              <button className="bg-[#D37A54] p-3 w-[120px] sm:w-[150px] font-bold text-white rounded-lg font-SourceSans3 hover:bg-[#DA9171]">
+                CONTACT
+              </button>
+            </Link>
           </div>
         </div>
       </div>

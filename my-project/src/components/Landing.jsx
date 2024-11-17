@@ -23,12 +23,11 @@ const Landing = () => {
             building.
           </h2>
           <div className="flex justify-center items-center">
-            <button className=" rounded-2xl bg-[#D37A54] w-[250px] h-[60px] text-center text-white text-bold font-Quicksand text-2xl">
+            <button className="bg-[#D37A54] px-4 py-2 w-[120px] sm:w-[150px] font-bold text-white rounded-lg font-SourceSans3 hover:bg-[#DA9171]">
               PROJECTS
             </button>
           </div>
         </div>
-        <div>gg</div>
       </div>
     </div>
   );
