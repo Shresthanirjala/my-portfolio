@@ -1,40 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import projects from "../data/Projects";
 
 
 const Project = () => {
   const navigate = useNavigate();
 
-  const handleViewProject = () => {
-    navigate("/ProjectDetail");
+  const handleViewProject = (id) => {
+    navigate(`/ProjectDetail/${id}`); // Redirect to dynamic route
   };
-
-  const projects = [
-    {
-      title: "Portfolio",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Massa diam tincidunt ullamcorper turpis a mattis vitae ultrices. Tempor pulvinar lorem tellus tempor sed egestas consectetur congue eu. Scelerisque sit risus ipsum proin faucibus. Bibendum cursus amet pretium quis sit nisl eget porttitor hendrerit.",
-      image: "portfolio.png",
-    },
-    {
-      title: "Shoes Store",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Massa diam tincidunt ullamcorper turpis a mattis vitae ultrices. Tempor pulvinar lorem tellus tempor sed egestas consectetur congue eu. Scelerisque sit risus ipsum proin faucibus. Bibendum cursus amet pretium quis sit nisl eget porttitor hendrerit.",
-      image: "portfolio.png",
-    },
-    {
-      title: "E-commerce Pet Store",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Massa diam tincidunt ullamcorper turpis a mattis vitae ultrices. Tempor pulvinar lorem tellus tempor sed egestas consectetur congue eu. Scelerisque sit risus ipsum proin faucibus. Bibendum cursus amet pretium quis sit nisl eget porttitor hendrerit.",
-      image: "portfolio.png",
-    },
-    {
-      title: "Chat Application",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Massa diam tincidunt ullamcorper turpis a mattis vitae ultrices. Tempor pulvinar lorem tellus tempor sed egestas consectetur congue eu. Scelerisque sit risus ipsum proin faucibus. Bibendum cursus amet pretium quis sit nisl eget porttitor hendrerit.",
-      image: "portfolio.png",
-    },
-  ];
 
   return (
     <div className="px-4 lg:px-32">
@@ -49,7 +23,7 @@ const Project = () => {
             alt="Divider"
           />
         </div>
-        <div className="flex flex-col gap-16 mt-10">
+        <div className="flex flex-col gap-[117px] mt-10">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -68,9 +42,9 @@ const Project = () => {
                 <h1 className="font-SourceSans3 font-bold text-2xl">
                   {project.title}
                 </h1>
-                <p className="text-sm md:text-base">{project.description}</p>
+                <p className="text-sm md:text-base">{project.shortdescription}</p>
                 <button
-                  onClick = {handleViewProject}
+                  onClick={() => handleViewProject(project.id)} // Pass project ID
                   className="bg-[#D37A54] px-4 py-2 w-[120px] sm:w-[150px] font-bold text-white rounded-lg font-SourceSans3 hover:bg-[#DA9171]"
                 >
                   VIEW

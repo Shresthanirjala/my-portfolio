@@ -7,12 +7,15 @@ import Project from "./components/Project";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ProjectDetail from "./components/ProjectDetail";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
     <div>
       <Navbar />
+      <ScrollToTop/>
       <Routes>
+        {/* Home page with sections */}
         <Route
           path="/"
           element={
@@ -35,7 +38,9 @@ const App = () => {
             </>
           }
         />
-        <Route path="/ProjectDetail" element={<ProjectDetail />} />
+
+        {/* Dynamic project detail route */}
+        <Route path="/ProjectDetail/:id" element={<ProjectDetail />} />
       </Routes>
     </div>
   );

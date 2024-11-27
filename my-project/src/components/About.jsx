@@ -4,23 +4,6 @@ import { Link } from "react-scroll";
 const About = () => {
   return (
     <div className="bg-white text-black">
-      <div className="flex flex-col justify-center items-center gap-4 py-16 px-4 sm:px-8">
-        <h1 className="text-3xl sm:text-4xl font-bold font-SourceSans3">
-          About Me
-        </h1>
-        <img
-          src="line.svg"
-          className="w-16 sm:w-[100px] h-[4px]"
-          alt="Divider"
-        />
-        <div className="text-center max-w-2xl">
-          <p className="font-SourceSans3 text-base sm:text-lg">
-            Here, you'll discover more about who I am, what I do, and my current
-            skills, primarily focused on programming and technology.
-          </p>
-        </div>
-      </div>
-
       <div
         style={{
           backgroundImage: "url(background.jpg)",
@@ -164,12 +147,7 @@ const About = () => {
           </div>
 
           <div className="flex mt-12 lg:mt-20 mb-8 lg:mb-24">
-            <Link
-             to="contact"
-             smooth={true}
-             offset={-70}
-             duration={500}
-            >
+            <Link to="contact" smooth={true} offset={-70} duration={500}>
               <button className="bg-[#D37A54] p-3 w-[120px] sm:w-[150px] font-bold text-white rounded-lg font-SourceSans3 hover:bg-[#DA9171]">
                 CONTACT
               </button>

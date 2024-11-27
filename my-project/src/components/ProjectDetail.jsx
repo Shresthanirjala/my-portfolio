@@ -1,39 +1,57 @@
-import React from 'react'
-import Contact from './Contact'
-import Footer from './Footer'
+import React from "react";
+import { useParams } from "react-router-dom";
+import projects from "../data/Projects";
+
+import Footer from "./Footer";
 
 const ProjectDetail = () => {
+  const { id } = useParams(); // Get project ID from URL
+  const project = projects.find((p) => p.id === parseInt(id)); // Find the project by ID
+
+  // Handle case when project is not found
+  if (!project) {
+    return (
+      <div className="text-center text-red-500 mt-10">Project not found!</div>
+    );
+  }
+
   return (
-    <div className='flex justify-center items-center flex-col'>
-      <div className="w-full h-[800px] bg-cover bg-center bg-[url('/landingbg.svg')]  flex  justify-center items-center">
-      <div className='flex flex-col justify-center items-center gap-10 w-[500px]'>   
-         <h1 className='font-SourceSans3 font-bold text-3xl'>PORTFOLIO</h1>
-      <h2>Very short description about this project, Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</h2>
-      <button className="bg-[#D37A54] p-3 w-[120px] sm:w-[150px] font-bold text-white rounded-lg font-SourceSans3 hover:bg-[#DA9171]">
-                PROJECT LINK
-              </button></div>
-  
-      </div>
-      <div className='flex justify-center items-center gap-10 flex-col w-[700px] m-20'  >
-        <img src="/portfolio.png"/>
+    <div className="flex flex-col justify-center items-center">
+      {/* About Section */}
+      <div className="flex flex-col items-center gap-6 px-4 py-24 md:px-0 w-full md:w-[700px] lg:w-[900px] my-10  ">
+        <h1 className="text-black font-SourceSans3 font-bold text-[40px] ">{project.title}</h1>
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full max-w-[800px] rounded-lg mt-6"
+        />
+        <div className="flex justify-center gap-[25px] flex-col lg:w-[700px] ">
+        <h1 className="font-SourceSans3 text-xl md:text-2xl font-bold mt-12">
+          About {project.title}
+        </h1>
+        <p className="font-SourceSans3 text-sm md:text-base text-justify ">
+          {project.description}
+        </p>
 
-        <h1 className='font-SourceSans3 text-2xl font-bold'>About portfolio</h1>
-        <p className='font-SourceSans3 '>Lorem ipsum dolor sit amet consectetur. Massa diam tincidunt ullamcorper turpis a mattis vitae ultrices. Tempor pulvinar lorem tellus tempor sed egestas consectetur congue eu. Scelerisque sit risus ipsum proin faucibus. Bibendum cursus amet pretium quis sit nisl eget porttitor hendrerit. Lorem ipsum dolor sit amet consectetur. Massa diam tincidunt ullamcorper turpis a mattis vitae ultrices. Tempor pulvinar lorem tellus tempor sed egestas consectetur congue eu. Scelerisque sit risus ipsum proin faucibus. Bibendum cursus amet pretium quis sit nisl eget porttitor hendrerit. 
-        Lorem ipsum dolor sit amet consectetur. Massa diam tincidunt ullamcorper turpis a mattis vitae ultrices. Tempor pulvinar lorem tellus tempor sed egestas consectetur congue eu. Scelerisque sit risus ipsum proin faucibus. Bibendum cursus amet pretium quis sit nisl eget porttitor hendrerit.</p>
-        
-        <h2  className='font-SourceSans3 text-2xl font-bold'>Tools Used</h2>
-        <div className='flex flex-row gap-3'>
-        <button className='bg-[#D9D9D9] rounded-lg p-2 w-[109px] text-black font-semibold'>React</button>
-        <button className='bg-[#D9D9D9] rounded-lg p-2 w-[109px] text-black font-semibold'>React</button>
-        <button className='bg-[#D9D9D9] rounded-lg p-2 w-[109px] text-black font-semibold'>React</button>
-      </div>
-      </div>
- 
- <Footer/>
+        <h2 className="font-SourceSans3 text-xl md:text-2xl font-bold mt-12">
+          Tools Used
+        </h2>
+        <div className="flex flex-row gap-3 px-3 py-1">
+          {project.tools?.map((tool, index) => (
+            <button
+              key={index}
+              className="bg-[#D9D9D9] w-[100px] rounded-lg px-3 py-2 text-sm font-semibold text-black"
+            >
+              {tool}
+            </button>
+          ))}
+        </div>
+        </div>
+        </div>
+     
+      <Footer />
     </div>
-    
-  )
-}
+  );
+};
 
-export default ProjectDetail
-
+export default ProjectDetail;
