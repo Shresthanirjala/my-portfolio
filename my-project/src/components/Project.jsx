@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import projects from "../data/Projects";
 
-
 const Project = () => {
   const navigate = useNavigate();
 
@@ -11,10 +10,11 @@ const Project = () => {
   };
 
   return (
-    <div className="px-4 lg:px-32">
-      <div className="flex flex-col py-16 gap-4">
+    <div className="px-4 md:px-8 py-16 flex justify-center">
+      <div className="flex flex-col gap-12 w-full max-w-[1200px]">
+        {/* Title Section */}
         <h1 className="text-center font-SourceSans3 font-bold text-3xl">
-          Project
+          Projects
         </h1>
         <div className="flex justify-center">
           <img
@@ -23,29 +23,38 @@ const Project = () => {
             alt="Divider"
           />
         </div>
-        <div className="flex flex-col gap-[117px] mt-10">
+
+        {/* Projects Section */}
+        <div className="flex flex-col gap-16 mt-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`flex flex-col lg:flex-row gap-24 items-center lg:items-start ${
+              className={`flex flex-col lg:flex-row gap-8 md:gap-12 items-center ${
                 index % 2 === 0 ? "lg:flex-row-reverse" : ""
               }`}
             >
-              <div className="w-full lg:w-[650px] h-[350px]">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
+              {/* Image Section */}
+              <div className="w-full lg:w-[650px] flex justify-center">
+                <div className="w-full aspect-w-16 aspect-h-9 lg:aspect-w-4 lg:aspect-h-3">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
               </div>
-              <div className="w-full lg:w-[500px] flex flex-col gap-7 mt-9">
-                <h1 className="font-SourceSans3 font-bold text-2xl">
+
+              {/* Text Section */}
+              <div className="w-full lg:w-[500px] flex flex-col gap-6 items-center md:items-start text-center md:text-left">
+                <h2 className="font-SourceSans3 font-bold text-xl md:text-2xl">
                   {project.title}
-                </h1>
-                <p className="text-sm md:text-base">{project.shortdescription}</p>
+                </h2>
+                <p className="text-sm md:text-base">
+                  {project.shortdescription}
+                </p>
                 <button
                   onClick={() => handleViewProject(project.id)} // Pass project ID
-                  className="bg-[#D37A54] px-4 py-2 w-[120px] sm:w-[150px] font-bold text-white rounded-lg font-SourceSans3 hover:bg-[#DA9171]"
+                  className="bg-[#D37A54] px-6 py-2 font-bold text-white rounded-lg font-SourceSans3 hover:bg-[#DA9171] transition-colors duration-300"
                 >
                   VIEW
                 </button>

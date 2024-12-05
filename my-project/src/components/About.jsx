@@ -27,7 +27,7 @@ const About = () => {
                 Get to Know me!!
               </h1>
               <p className="text-base sm:text-lg leading-relaxed mt-6 font-SourceSans3">
-                I'm Nirjala, a passionate Frontend Developer based in Kathmandu,
+                I'm Nirjala, a passionate Frontend Developer and UI/UX Designer based in Kathmandu,
                 dedicated to building seamless, user-friendly web applications.
                 My focus is on creating responsive, engaging interfaces that
                 enhance user experience. Alongside my frontend expertise, I also
@@ -100,7 +100,9 @@ const About = () => {
                   "Tailwind CSS",
                   "Node.js",
                   "Express",
+                  "UI/UX Design",
                   "GitHub",
+                  "Next js"
                 ].map((field, idx) => (
                   <button
                     key={idx}

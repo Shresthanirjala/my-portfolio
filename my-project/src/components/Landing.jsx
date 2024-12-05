@@ -4,45 +4,50 @@ import Typewriter from "typewriter-effect";
 
 const Landing = () => {
   return (
-    <div>
-      <div
-        style={{
-          backgroundImage: "url(landingbg.svg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          height: "800px", // adjust height as per your layout
-        }}
-        className="flex py-16 px-32"
-      >
-        <div className="mt-52 flex flex-col gap-7 font-SourceSans3 px-24 w-[900px]">
-          <h1 className=" font-SourceSans3 text-2xl">
+    <div
+      style={{
+        backgroundImage: "url(landingbg.svg)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+      className="flex items-center justify-center px-6 lg:px-0 xl:px-9"
+    >
+      {/* Main Container */}
+      <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-[1200px] gap-10 lg:gap-16 lg:mt-14 mt-28">
+        {/* Text Section */}
+        <div className="flex flex-col gap-7 font-SourceSans3 px-4 lg:px-12 xl:px-24 w-full lg:w-[60%] text-center lg:text-left">
+          <h1 className="text-lg sm:text-xl lg:text-2xl">
             Hello, <span className="text-[#DA9171]">I am</span>
           </h1>
-          <h1 className="text-5xl font-bold font-SourceSans3">
-            <span>
-              <Typewriter
-                options={{
-                  strings: ["Frontend Developer","UI/UX Designer"],
-                  autoStart: true,
-                  loop: true,
-                }}
-              />
-            </span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            <Typewriter
+              options={{
+                strings: ["Frontend Developer", "UI/UX Designer"],
+                autoStart: true,
+                loop: true,
+              }}
+            />
           </h1>
-
-          <h2 className="font-SourceSans3">
-          HI I’m a Junior front-end developer crafting responsive interfaces using React and the MERN stack. Passionate about learning and building.
+          <h2 className="text-sm sm:text-base lg:text-lg">
+            Hi! I’m a Junior Frontend Developer and UI/UX Designer crafting responsive interfaces
+            using React and the MERN stack. Passionate about learning and
+            building.
           </h2>
-
           <Link to="project" smooth={true} offset={-70} duration={500}>
-            <button className="bg-[#D37A54] p-3 w-[120px] sm:w-[150px] font-bold text-white rounded-lg font-SourceSans3 hover:bg-[#DA9171]">
+            <button className="bg-[#D37A54] p-3 w-[100px] sm:w-[120px] md:w-[150px] transition-colors delay-150 duration-300 ease-in-out font-bold text-white rounded-lg hover:bg-[#DA9171]">
               PROJECTS
             </button>
           </Link>
         </div>
-        <div className=" w-[600px] flex justify-center mt-32">
-          <img src="/nnn.png" className="shadow-lg w-60 h-60 sm:w-60 sm:h-60 lg:w-[500px] lg:h-[600px]  object-cover bg-[#D37A54]"/>
+
+        {/* Image Section */}
+        <div className="flex justify-center lg:justify-end w-full lg:w-[40%]">
+          <img
+            src="/nirjala1.png"
+            alt="Profile"
+            className="hidden lg:block w-40 h-40 sm:w-52 sm:h-52 lg:w-[300px] lg:h-[400px] xl:w-[500px] xl:h-[600px] object-cover rounded-full lg:rounded-none"
+          />
         </div>
       </div>
     </div>
