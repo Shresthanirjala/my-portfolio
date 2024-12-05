@@ -28,7 +28,7 @@ const Contact = () => {
         <div className="flex flex-row gap-11 mt-7">
           {/* LinkedIn Icon */}
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/nirjala-shrestha-2b1624289/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-5 rounded-lg hover:bg-[#D37A54] transition-all duration-300"
@@ -38,7 +38,7 @@ const Contact = () => {
 
           {/* GitHub Icon */}
           <a
-            href="https://github.com/"
+            href="https://github.com/Shresthanirjala"
             target="_blank"
             rel="noopener noreferrer"
             className="p-5 rounded-lg hover:bg-[#D37A54] transition-all duration-300"
@@ -48,7 +48,7 @@ const Contact = () => {
 
           {/* Instagram Icon */}
           <a
-            href="https://www.instagram.com/"
+            href="https://www.instagram.com/nirjala_shrestha34/?fbclid=IwZXh0bgNhZW0CMTEAAR2lW3abDpLiJ1A-OzEu-0nrm4NPXZdcz07bqh9Iykwy2d1tJ_z9KsGPWv8_aem_tN87biYh6ySc5Dju59arZA"
             target="_blank"
             rel="noopener noreferrer"
             className="p-5 rounded-lg hover:bg-[#D37A54] transition-all duration-300"

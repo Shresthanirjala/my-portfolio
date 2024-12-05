@@ -15,7 +15,7 @@ const About = () => {
       >
         <div className="w-full max-w-6xl">
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 text-black">
-            <div className="mt-8 lg:mt-20">
+            <div className="mt-8 lg:mt-14">
               <img
                 src="nirjala.jpg"
                 alt="Profile"
