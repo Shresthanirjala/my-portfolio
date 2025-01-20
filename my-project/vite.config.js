@@ -1,7 +1,8 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  base: '/', // Use '/' for root deployment
   build: {
-    outDir: "dist", // Ensures compatibility with Vercel settings
+    outDir: 'dist',
   },
 });
