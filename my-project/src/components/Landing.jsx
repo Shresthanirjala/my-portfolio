@@ -46,7 +46,7 @@ const Landing = () => {
           <img
             src="/nirjala1.png"
             alt="Profile"
-            className="hidden lg:block w-40 lg:mt-[-40px] h-40 sm:w-52 sm:h-52 lg:w-[300px] lg:h-[400px] xl:w-[500px] xl:h-[600px] object-cover rounded-full lg:rounded-none"
+            className="hidden lg:block w-40 lg:mt-[-40px] h-40  mb-40 sm:w-52 sm:h-52 lg:w-[300px] lg:h-[400px] xl:w-[500px] xl:h-[600px] object-cover rounded-full lg:rounded-none"
           />
         </div>
       </div>
