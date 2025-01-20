@@ -62,7 +62,7 @@ const Footer = () => {
       {/* Footer Bottom */}
       <div className="flex justify-center items-center mt-8 lg:mt-24">
         <h1 className="text-white font-SourceSans3 text-sm lg:text-base text-center">
-          © Copyright 2024, Made by Nirjala Shrestha
+          © Copyright 2024, Made by Nirjala Shrestha BCA
         </h1>
       </div>
     </div>
