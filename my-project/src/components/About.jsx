@@ -27,13 +27,13 @@ const About = () => {
                 Get to Know me!!
               </h1>
               <p className="text-base sm:text-lg leading-relaxed mt-6 font-SourceSans3">
-                I'm Nirjala, a passionate Frontend Developer and UI/UX Designer based in Kathmandu,
-                dedicated to building seamless, user-friendly web applications.
-                My focus is on creating responsive, engaging interfaces that
-                enhance user experience. Alongside my frontend expertise, I also
-                have a working knowledge of backend technologies like Node.js
-                and Express, which gives me a well-rounded approach to
-                development.
+                I'm Nirjala, a passionate Frontend Developer and UI/UX Designer
+                based in Kathmandu, dedicated to building seamless,
+                user-friendly web applications. My focus is on creating
+                responsive, engaging interfaces that enhance user experience.
+                Alongside my frontend expertise, I also have a working knowledge
+                of backend technologies like Node.js and Express, which gives me
+                a well-rounded approach to development.
               </p>
               <p className="text-base sm:text-lg leading-relaxed mt-3 font-SourceSans3">
                 I’m always eager to learn and stay up-to-date with emerging
@@ -78,11 +78,18 @@ const About = () => {
                     <p>Atlantic English Secondary School</p>
                   </div>
                   <div>
-                    <h3 className="text-lg font-SourceSans3">2024 - Present</h3>
+                    <h3 className="text-lg font-SourceSans3">2024 </h3>
                     <h2 className="text-xl font-bold font-SourceSans3">
-                      Front-end Intern
+                      Fullstack Intern and Traineship
                     </h2>
                     <p className="font-SourceSans3">N9 Solution</p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-SourceSans3">2025-present </h3>
+                    <h2 className="text-xl font-bold font-SourceSans3">
+                      Web Developer
+                    </h2>
+                    <p className="font-SourceSans3">Clothing In Nepal</p>
                   </div>
                 </div>
               </div>
@@ -102,7 +109,7 @@ const About = () => {
                   "Express",
                   "UI/UX Design",
                   "GitHub",
-                  "Next js"
+                  "Next js",
                 ].map((field, idx) => (
                   <button
                     key={idx}

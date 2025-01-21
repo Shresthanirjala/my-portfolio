@@ -1,6 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { GrInstagram } from "react-icons/gr";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -43,14 +42,15 @@ const Footer = () => {
               <FaGithub className="h-6 w-6 lg:h-[30px] lg:w-[30px] text-white" />
             </a>
 
-            {/* Instagram Icon */}
+            {/* Whatsapp Icon */}
             <a
-              href="https://www.instagram.com/"
+              href="https://wa.me/9808845112"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Contact us on WhatsApp"
               className="p-2 rounded-lg hover:bg-[#D37A54] transition-all duration-300"
             >
-              <GrInstagram className="h-6 w-6 lg:h-[30px] lg:w-[30px] text-white" />
+              <FaWhatsapp className="h-6 w-6 lg:h-[30px] lg:w-[30px] text-white" />
             </a>
           </div>
         </div>
