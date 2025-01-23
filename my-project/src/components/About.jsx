@@ -59,7 +59,7 @@ const About = () => {
                 ].map((skill, idx) => (
                   <button
                     key={idx}
-                    className="rounded-2xl min-w-[120px] sm:min-w-[150px] h-[40px] p-2 text-black border border-black"
+                    className="rounded-2xl min-w-[120px] sm:min-w-[150px] h-[40px] p-2 text-black border border-black hover:border-cyan-500 transform transition-transform duration-300 ease-in-out hover:scale-105"
                   >
                     {skill}
                   </button>
@@ -113,7 +113,7 @@ const About = () => {
                 ].map((field, idx) => (
                   <button
                     key={idx}
-                    className="rounded-2xl min-w-[120px] sm:min-w-[150px] h-[40px] p-2 text-black border border-black"
+                    className="rounded-2xl min-w-[120px] sm:min-w-[150px] h-[40px] p-2 text-black border border-black hover:border-cyan-500 transform transition-transform duration-300 ease-in-out hover:scale-105"
                   >
                     {field}
                   </button>

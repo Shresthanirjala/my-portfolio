@@ -49,6 +49,18 @@ const ProjectDetail = () => {
                 </button>
               ))}
             </div>
+
+            {/* Redirect Button
+            {project.link && (
+              <div className="mt-8">
+                <button
+                  onClick={() => window.open(project.link, "_blank")}
+                  className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-all"
+                >
+                  View Project
+                </button>
+              </div>
+            )} */}
           </div>
         </div>
       </div>

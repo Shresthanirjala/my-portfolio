@@ -16,6 +16,9 @@ export default {
         Quicksand: "Quicksand",
         SourceSans3:"SOurce Sans 3",
       },
+      colors: {
+        aqua: '#00FFFF',
+      },
     },
   },
 

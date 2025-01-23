@@ -38,9 +38,12 @@ const Navbar = () => {
             className="rounded-full h-[40px] w-[40px]"
             alt="Profile"
           />
-          <div className="text-xl font-bold font-SourceSans3 text-black ml-5">
+          <button
+            onClick={() => handleNavigation("menu")}
+            className="text-xl font-SourceSans3 text-black ml-5  font-semibold cursor-pointer block"
+          >
             NIRJALA SHRESTHA
-          </div>
+          </button>
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden">

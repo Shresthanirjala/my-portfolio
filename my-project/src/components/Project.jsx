@@ -35,13 +35,18 @@ const Project = () => {
             >
               {/* Image Section */}
               <div className="w-full lg:w-[650px] flex justify-center">
-                <div className="w-full aspect-w-16 aspect-h-9 lg:aspect-w-4 lg:aspect-h-3">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover rounded-lg"
-                  />
-                </div>
+                <a
+                  href={project.link}
+                  className="w-full aspect-w-16 aspect-h-9 lg:aspect-w-4 lg:aspect-h-3 block"
+                >
+                  <div className="w-full h-full transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                </a>
               </div>
 
               {/* Text Section */}
