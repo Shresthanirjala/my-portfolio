@@ -43,7 +43,7 @@ const ProjectDetail = () => {
               {project.tools?.map((tool, index) => (
                 <button
                   key={index}
-                  className="bg-[#D9D9D9] w-[100px] rounded-lg px-3 py-2 text-sm font-semibold text-black"
+                  className="bg-[#D9D9D9] w-[100px] rounded-lg px-3 py-2 text-sm font-semibold text-black hover:bg-cyan-500 hover:scale-105 transition-transform duration-300 ease-in-out"
                 >
                   {tool}
                 </button>
