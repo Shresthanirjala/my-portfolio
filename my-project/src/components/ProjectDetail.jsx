@@ -19,8 +19,8 @@ const ProjectDetail = () => {
     <div>
       <div className="flex flex-col justify-center items-center">
         {/* About Section */}
-        <div className="flex flex-col items-center gap-6 px-4 py-24 md:px-0 w-full md:w-[700px] lg:w-[900px] my-10  ">
-          <h1 className="text-black font-SourceSans3 font-bold text-[40px] ">
+        <div className="flex flex-col items-center gap-6 px-4 py-8 w-full max-w-[90%] md:max-w-[700px] lg:max-w-[900px] my-10">
+          <h1 className="text-black font-SourceSans3 font-bold text-[28px] md:text-[40px] text-center">
             {project.title}
           </h1>
           <img
@@ -28,31 +28,31 @@ const ProjectDetail = () => {
             alt={project.title}
             className="w-full max-w-[800px] rounded-lg mt-6"
           />
-          <div className="flex justify-center gap-[25px] flex-col lg:w-[700px] ">
-            <h1 className="font-SourceSans3 text-xl md:text-2xl font-bold mt-12">
+          <div className="flex flex-col gap-6 w-full">
+            <h1 className="font-SourceSans3 text-lg md:text-2xl font-bold mt-6 text-center">
               About {project.title}
             </h1>
-            <p className="font-SourceSans3 text-sm md:text-base text-justify ">
+            <p className="font-SourceSans3 text-sm md:text-base text-justify leading-relaxed">
               {project.description}
             </p>
 
-            <h2 className="font-SourceSans3 text-xl md:text-2xl font-bold mt-12">
+            <h2 className="font-SourceSans3 text-lg md:text-2xl font-bold mt-6 text-center">
               Tools Used
             </h2>
-            <div className="flex flex-row gap-3 px-3 py-1">
+            <div className="flex flex-wrap gap-3 px-3 py-1 justify-center">
               {project.tools?.map((tool, index) => (
                 <button
                   key={index}
-                  className="bg-[#D9D9D9] w-[100px] rounded-lg px-3 py-2 text-sm font-semibold text-black hover:bg-cyan-500 hover:scale-105 transition-transform duration-300 ease-in-out"
+                  className="bg-[#D9D9D9] rounded-lg px-3 py-2 text-sm font-semibold text-black hover:bg-cyan-500 hover:scale-105 transition-transform duration-300 ease-in-out"
                 >
                   {tool}
                 </button>
               ))}
             </div>
 
-            {/* Redirect Button
-            {project.link && (
-              <div className="mt-8">
+            {/* Redirect Button */}
+            {/* {project.link && (
+              <div className="mt-8 text-center">
                 <button
                   onClick={() => window.open(project.link, "_blank")}
                   className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-all"
