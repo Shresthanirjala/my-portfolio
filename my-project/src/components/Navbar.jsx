@@ -34,8 +34,8 @@ const Navbar = () => {
         {/* Logo Section */}
         <div className="flex items-center justify-between w-full md:w-auto">
           <img
-            src="/nnn.png"
-            className="rounded-full h-[40px] w-[40px]"
+            src="/n.svg"
+            className=" h-[40px] w-[40px]"
             alt="Profile"
           />
           <button
