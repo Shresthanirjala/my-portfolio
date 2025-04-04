@@ -23,16 +23,16 @@ const Landing = () => {
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
             <Typewriter
               options={{
-                strings: ["Frontend Developer", "UI/UX Designer"],
+                strings: ["Fullstack Developer", "UI/UX Designer"],
                 autoStart: true,
                 loop: true,
               }}
             />
           </h1>
           <h2 className="text-sm sm:text-base lg:text-lg">
-            Hi! I’m a Junior Frontend Developer and UI/UX Designer crafting responsive interfaces
-            using React and the MERN stack. Passionate about learning and
-            building.
+            Hi! I’m a Junior Fullstack Developer and UI/UX Designer crafting
+            responsive interfaces using React and the MERN stack. Passionate
+            about learning and building.
           </h2>
           <Link to="project" smooth={true} offset={-70} duration={500}>
             <button className="bg-[#D37A54] p-3 w-[100px] sm:w-[120px] md:w-[150px] transition-colors delay-150 duration-300 ease-in-out font-bold text-white rounded-lg hover:bg-[#DA9171]">
