@@ -3,69 +3,67 @@ import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="bg-black px-6 sm:px-16 lg:px-40 py-16 lg:py-28">
-      <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row lg:gap-60 gap-12">
-        {/* Left Section */}
-        <div className="lg:w-[500px] space-y-4 lg:space-y-8 text-center lg:text-left">
-          <h1 className="text-white text-xl lg:text-2xl font-bold font-SourceSans3">
-            NIRJALA SHRESTHA
-          </h1>
-          <h2 className="text-white font-SourceSans3 text-sm lg:text-base">
-            Frontend focused Web Developer building the Frontend of Websites and
-            Web Applications that leads to the success of the overall product.
-          </h2>
-        </div>
+    <footer className="bg-gray-900 text-white pt-12 pb-6">
+      <div className="container mx-auto px-6 md:px-12 lg:px-16">
+        {/* Main Footer Content */}
+        <div className="flex flex-col md:flex-row justify-between gap-8 mb-10">
+          {/* Left Section */}
+          <div className="flex-1">
+            <h2 className="text-2xl font-bold text-purple-400 mb-4">
+              NIRJALA SHRESTHA
+            </h2>
+            <p className="text-gray-300 max-w-md">
+              Frontend focused Web Developer building the Frontend of Websites
+              and Web Applications that leads to the success of the overall
+              product.
+            </p>
+          </div>
 
-        {/* Right Section */}
-        <div className="text-center lg:text-left">
-          <h1 className="text-white font-SourceSans3 text-xl lg:text-2xl font-bold">
-            SOCIAL
-          </h1>
-          <div className="flex justify-center lg:justify-start gap-6 lg:gap-11 mt-4 lg:mt-7">
-            {/* LinkedIn Icon */}
-            <a
-              href="https://www.linkedin.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-lg hover:bg-[#D37A54] transition-all duration-300"
-            >
-              <FaLinkedin className="h-6 w-6 lg:h-[30px] lg:w-[30px] text-white" />
-            </a>
+          {/* Right Section */}
+          <div className="flex-1 md:flex md:justify-end">
+            <div>
+              <h3 className="text-xl font-bold text-purple-400 mb-4">SOCIAL</h3>
+              <div className="flex gap-4">
+                {/* LinkedIn Icon */}
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors duration-300"
+                  aria-label="LinkedIn Profile"
+                >
+                  <FaLinkedin className="text-xl" />
+                </a>
 
-            {/* GitHub Icon */}
-            <a
-              href="https://github.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-lg hover:bg-[#D37A54] transition-all duration-300"
-            >
-              <FaGithub className="h-6 w-6 lg:h-[30px] lg:w-[30px] text-white" />
-            </a>
+                {/* GitHub Icon */}
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors duration-300"
+                  aria-label="GitHub Profile"
+                >
+                  <FaGithub className="text-xl" />
+                </a>
 
-            {/* Whatsapp Icon */}
-            <a
-              href="https://wa.me/9808845112"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Contact us on WhatsApp"
-              className="p-2 rounded-lg hover:bg-[#D37A54] transition-all duration-300"
-            >
-              <FaWhatsapp className="h-6 w-6 lg:h-[30px] lg:w-[30px] text-white" />
-            </a>
+                {/* WhatsApp Icon */}
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors duration-300"
+                  aria-label="WhatsApp Contact"
+                >
+                  <FaWhatsapp className="text-xl" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Divider */}
-      <div className="max-w-screen-xl mx-auto border-t border-white mt-10"></div>
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent my-6"></div>
 
-      {/* Footer Bottom */}
-      <div className="flex justify-center items-center mt-8 lg:mt-24">
-        <h1 className="text-white font-SourceSans3 text-sm lg:text-base text-center">
+        {/* Footer Bottom */}
+        <div className="text-center text-gray-400 text-sm">
           © Copyright 2024, Made by Nirjala Shrestha
-        </h1>
+        </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

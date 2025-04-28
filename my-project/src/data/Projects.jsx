@@ -9,6 +9,7 @@ const projects = [
     image: "/shoesstore.png",
     tools: ["Html", "JavaScript", "CSS"],
     link: "https://chatapp-mern-lw9r.onrender.com/login",
+    gallery: ["/shoesstore.png"],
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const projects = [
     image: "/petstore.png",
     tools: ["Html", "Css", "Javascript", "PHP"],
     link: "https://chatapp-mern-lw9r.onrender.com/login",
+    gallery: ["/petstore.png"],
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ const projects = [
     image: "/chat1.png",
     tools: ["React", "JavaScript", "Tailwind CSS", "Node js"],
     link: "https://chatapp-mern-lw9r.onrender.com/login",
+    gallery: ["/chat1.png"],
   },
   {
     id: 4,
@@ -42,6 +45,7 @@ const projects = [
     image: "/eshop2.png",
     tools: ["React", "JavaScript", "TailwindCss", "Html"],
     link: "https://chatapp-mern-lw9r.onrender.com/login",
+    gallery: ["/eshop2.png"],
   },
   {
     id: 5,
@@ -53,6 +57,7 @@ const projects = [
     image: "/blog1.png",
     tools: ["Wordpress"],
     link: "https://nverse0.wordpress.com/",
+    gallery: ["/blog1.png"],
   },
 ];
 
