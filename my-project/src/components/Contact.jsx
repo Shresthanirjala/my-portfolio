@@ -121,14 +121,10 @@ const Contact = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h1 className="text-center font-bold text-5xl md:text-6xl bg-gradient-to-r from-indigo-400 via-blue-400 to-indigo-300 bg-clip-text text-transparent">
+          <h1 className="text-center font-bold text-4xl md:text-5xl text-white bg-clip-text text-transparent">
             Contact
           </h1>
-          <div className="flex justify-center mt-6">
-            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-indigo-500 to-transparent rounded-full">
-              <div className="h-full w-full bg-gradient-to-r from-indigo-400 to-blue-400 animate-shimmer rounded-full"></div>
-            </div>
-          </div>
+          
           <p className="text-center text-gray-300 mt-4 text-lg">
             Let's connect and bring your ideas to life
           </p>
@@ -251,7 +247,7 @@ const Contact = () => {
             </div>
 
             {/* Social Media Icons */}
-            <div className="backdrop-blur-sm bg-gray-800/30 border border-gray-700/50 shadow-2xl rounded-2xl hover:shadow-indigo-500/10 transition-shadow duration-300">
+            <div className="backdrop-blur-sm bg-gray-800/30 border border-gray-700/50 shadow-2xl rounded-2xl hover:shadow-indigo-500/10 transition-shadow duration-300 mt-28">
               <div className="h-1 bg-gradient-to-r from-indigo-500 via-blue-500 to-indigo-400 rounded-t-2xl"></div>
               <div className="p-8">
                 <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-blue-300 bg-clip-text text-transparent mb-8">

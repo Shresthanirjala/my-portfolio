@@ -114,18 +114,12 @@ const Landing = () => {
             }`}
           >
             {/* Professional greeting */}
-            <div className="space-y-2">
-              <p className="text-indigo-400 text-sm uppercase tracking-widest font-medium">
-                Welcome to my portfolio
-              </p>
-              <div className="w-12 h-0.5 bg-gradient-to-r from-indigo-500 to-blue-500 mx-auto lg:mx-0"></div>
-            </div>
-
+           
             <h1 className="text-2xl sm:text-3xl md:text-4xl text-gray-300 font-light">
               Hello, I'm a
             </h1>
 
-            <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+            <div className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-tight">
               <Typewriter
                 options={{
                   strings: [

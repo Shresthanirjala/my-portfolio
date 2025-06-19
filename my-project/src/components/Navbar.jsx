@@ -43,9 +43,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center">
-                <span className="text-gray-800 font-bold text-lg">N</span>
-              </div>
+              
               <button
                 onClick={() => handleNavigation("menu")}
                 className="text-white font-semibold text-lg hover:text-gray-300"
@@ -113,12 +111,6 @@ const Navbar = () => {
                     {item}
                   </button>
                 ))}
-                <button
-                  onClick={() => handleNavigation("contact")}
-                  className="block w-full text-left px-4 py-2 text-white bg-gray-600 hover:bg-gray-500 mx-4 my-2 rounded"
-                >
-                  HIRE ME
-                </button>
               </div>
             </div>
           )}

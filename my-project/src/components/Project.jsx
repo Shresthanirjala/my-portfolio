@@ -51,6 +51,7 @@ const Project = () => {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             My Projects
           </h1>
+
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             A collection of my work showcasing different technologies and
             solutions
@@ -72,18 +73,6 @@ const Project = () => {
               {tag}
             </button>
           ))}
-        </div>
-
-        {/* Project Count */}
-        <div className="text-center mb-8 text-gray-300">
-          Showing {filteredProjects.length} project
-          {filteredProjects.length !== 1 ? "s" : ""}
-          {selectedTag !== "All" && (
-            <span>
-              {" "}
-              in <span className="text-white font-medium">{selectedTag}</span>
-            </span>
-          )}
         </div>
 
         {/* Projects Grid */}
@@ -117,8 +106,16 @@ const Project = () => {
 
 // Project Card Component
 const ProjectCard = ({ project }) => {
+  // Use 'link' as the live URL for redirection
+  const liveUrl = project.link;
   return (
-    <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/80 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 hover:-translate-y-2 border border-gray-700/50 backdrop-blur-sm">
+    <div
+      className="bg-gradient-to-br from-gray-800/60 to-gray-900/80 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 hover:-translate-y-2 border border-gray-700/50 backdrop-blur-sm py-5 cursor-pointer"
+      onClick={() => {
+        if (liveUrl) window.open(liveUrl, "_blank");
+      }}
+      title={liveUrl ? `Open ${project.title} Live` : undefined}
+    >
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
         <img
