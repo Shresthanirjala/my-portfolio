@@ -1,550 +1,350 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-scroll";
 
 const About = () => {
-  const [activeTab, setActiveTab] = useState("personal");
-  const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
-    setIsVisible(true);
+    // Particle animation
+    const canvas = document.getElementById('particle-canvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    const particles = [];
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        size: Math.random() * 2 + 1
+      });
+    }
+    
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach(particle => {
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+        
+        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+        
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(99, 102, 241, 0.3)';
+        ctx.fill();
+      });
+      
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+    
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Animation for skill levels
-  const personalSkills = [
-    { name: "Responsible", level: 95 },
-    { name: "Time Management", level: 90 },
-    { name: "Attention to Details", level: 92 },
-    { name: "Communication Skills", level: 88 },
+  const skills = [
+    "React", "JavaScript", "HTML/CSS", "Tailwind CSS", "Node.js", 
+    "Express", "UI/UX Design", "GitHub", "Next.js", "MongoDB", 
+    "API Development"
   ];
 
-  const technicalSkills = [
-    { name: "React", level: 90 },
-    { name: "JavaScript", level: 85 },
-    { name: "HTML/CSS", level: 95 },
-    { name: "Tailwind CSS", level: 92 },
-    { name: "Node.js", level: 80 },
-    { name: "Express", level: 75 },
-    { name: "UI/UX Design", level: 85 },
-    { name: "GitHub", level: 82 },
-    { name: "Next.js", level: 78 },
-  ];
-
-  // Hackathon photos data
-  const hackathonPhotos = [
+  const achievements = [
     {
       id: 1,
-      image: "hackathon1.jpg", // Replace with your actual image path
+      image: "hackathon1.jpg",
       title: "himalAi 2024",
-      description: "Got the honourable mention tag and also selected as top 4",
+      description: "Top 4 finalist in AI innovation hackathon",
       date: "April 2025",
+      award: "Top 4 Finalist",
     },
     {
       id: 2,
-      image: "Hackathon2.JPG", // Replace with your actual image path
+      image: "Hackathon2.JPG",
       title: "Sui Hacker House",
-      description:
-        "Collaborated on an AI-powered platform and Winner of the AI Track",
+      description: "AI Track Winner for platform development",
       date: "April 2025",
+      award: "AI Track Winner",
     },
   ];
 
   return (
-    <div
-      id="about"
-      className="bg-gradient-to-b from-white to-purple-50 text-black py-12 sm:py-16 md:py-20"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-16">
-        {/* Profile Section */}
-        <div
-          className={`transition-all duration-1000 transform ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-        >
-          <div className="flex flex-col lg:flex-row items-center gap-6 md:gap-8 lg:gap-16">
-            {/* Profile Image with Animated Border */}
-            <div className="relative group mb-6 lg:mb-0">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-purple-600 to-purple-400 rounded-full blur-md group-hover:blur-lg transition-all duration-300"></div>
-              <div className="relative p-1.5 bg-white rounded-full">
-                <img
-                  src="nirjala.jpg"
-                  alt="Profile"
-                  className="w-40 h-40 xs:w-44 xs:h-44 sm:w-48 sm:h-48 md:w-60 md:h-60 lg:w-72 lg:h-72 rounded-full object-cover transition-all duration-300 group-hover:scale-105"
-                />
-              </div>
-            </div>
+    <div id="about" className="relative min-h-screen text-white py-20 overflow-hidden">
+      {/* Particle canvas for subtle background */}
+      <canvas id="particle-canvas" className="absolute inset-0 z-0" />
+      
+      {/* Dark gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900 z-0"></div>
+      
+      {/* Professional geometric accents */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-indigo-600/10 to-transparent rounded-full blur-3xl z-0"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-blue-600/10 to-transparent rounded-full blur-3xl z-0"></div>
+      
+      {/* Grid pattern overlay */}
+      <div
+        className="absolute inset-0 opacity-5 z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px)
+          `,
+          backgroundSize: "40px 40px",
+        }}
+      ></div>
 
-            {/* About Text */}
-            <div className="lg:w-2/3 text-center lg:text-left">
-              <div className="inline-block mb-3 md:mb-4">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-purple-800 relative inline-block">
-                  Get to Know Me
-                  <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full"></span>
-                </h1>
-              </div>
-
-              <p className="text-sm sm:text-base md:text-lg leading-relaxed mt-4 md:mt-6 text-gray-700">
-                I'm{" "}
-                <span className="text-purple-600 font-semibold">Nirjala</span>,
-                A passionate Full-Stack Software Developer based in Kathmandu,
-                committed to building robust, scalable, and user-friendly web
-                applications. I specialize in both frontend and backend
-                development, creating responsive interfaces and powerful
-                server-side solutions. With expertise in technologies like
-                React, Node.js, and Express, I bring a well-rounded approach to
-                delivering seamless digital experiences.
-              </p>
-
-              <p className="text-sm sm:text-base md:text-lg leading-relaxed mt-3 md:mt-4 text-gray-700">
-                I'm always eager to learn and stay up-to-date with emerging
-                technologies, aiming to bring a fresh perspective to every
-                project. My goal is to craft digital solutions that are both
-                visually appealing and functionally robust, delivering quality
-                experiences for users.
-              </p>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mt-6 md:mt-8">
-                <div className="p-2 sm:p-3 md:p-4 bg-white border border-purple-100 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-600">
-                    1+
-                  </h3>
-                  <p className="text-xs sm:text-sm md:text-base text-gray-600">
-                    Years Experience
-                  </p>
-                </div>
-                <div className="p-2 sm:p-3 md:p-4 bg-white border border-purple-100 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-600">
-                    15+
-                  </h3>
-                  <p className="text-xs sm:text-sm md:text-base text-gray-600">
-                    Projects
-                  </p>
-                </div>
-                <div className="p-2 sm:p-3 md:p-4 bg-white border border-purple-100 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-600">
-                    10+
-                  </h3>
-                  <p className="text-xs sm:text-sm md:text-base text-gray-600">
-                    Clients
-                  </p>
-                </div>
-                <div className="p-2 sm:p-3 md:p-4 bg-white border border-purple-100 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-600">
-                    3
-                  </h3>
-                  <p className="text-xs sm:text-sm md:text-base text-gray-600">
-                    Certificates
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-16 max-w-7xl">
+        
+        {/* Main Title */}
+        <div className="text-center mb-20">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            About Me
+          </h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Full-stack developer passionate about creating digital solutions that inspire and empower users
+          </p>
         </div>
 
-        {/* Skills & Education Section */}
-        <div className="mt-12 md:mt-16 lg:mt-24">
-          {/* Tab Navigation - Scrollable on mobile */}
-          <div className="flex justify-center mb-6 md:mb-10 overflow-x-auto pb-2 px-2">
-            <div className="inline-flex p-1 bg-gray-100 rounded-full no-scrollbar whitespace-nowrap">
-              <button
-                onClick={() => setActiveTab("personal")}
-                className={`px-3 sm:px-4 md:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
-                  activeTab === "personal"
-                    ? "bg-purple-600 text-white shadow-md"
-                    : "text-gray-700 hover:text-purple-600"
-                }`}
-              >
-                Personal Skills
-              </button>
-              <button
-                onClick={() => setActiveTab("technical")}
-                className={`px-3 sm:px-4 md:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
-                  activeTab === "technical"
-                    ? "bg-purple-600 text-white shadow-md"
-                    : "text-gray-700 hover:text-purple-600"
-                }`}
-              >
-                Technical Skills
-              </button>
-              <button
-                onClick={() => setActiveTab("experience")}
-                className={`px-3 sm:px-4 md:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
-                  activeTab === "experience"
-                    ? "bg-purple-600 text-white shadow-md"
-                    : "text-gray-700 hover:text-purple-600"
-                }`}
-              >
-                Experience
-              </button>
-              <button
-                onClick={() => setActiveTab("education")}
-                className={`px-3 sm:px-4 md:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
-                  activeTab === "education"
-                    ? "bg-purple-600 text-white shadow-md"
-                    : "text-gray-700 hover:text-purple-600"
-                }`}
-              >
-                Education
-              </button>
-              <button
-                onClick={() => setActiveTab("hackathons")}
-                className={`px-3 sm:px-4 md:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
-                  activeTab === "hackathons"
-                    ? "bg-purple-600 text-white shadow-md"
-                    : "text-gray-700 hover:text-purple-600"
-                }`}
-              >
-                Hackathons
-              </button>
-            </div>
-          </div>
-
-          {/* Tab Content */}
-          <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-10 md:mb-16">
-            {/* Personal Skills Tab */}
-            <div
-              className={`transition-opacity duration-500 ${
-                activeTab === "personal"
-                  ? "block opacity-100"
-                  : "hidden opacity-0"
-              }`}
-            >
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-800 mb-4 md:mb-6">
-                Personal Skills
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-                {personalSkills.map((skill, idx) => (
-                  <div key={idx} className="mb-3 md:mb-4">
-                    <div className="flex justify-between mb-1">
-                      <span className="font-medium text-sm md:text-base text-gray-700">
-                        {skill.name}
-                      </span>
-                      <span className="text-purple-600 font-bold text-sm md:text-base">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2 md:h-2.5">
-                      <div
-                        className="bg-gradient-to-r from-purple-400 to-purple-600 h-2 md:h-2.5 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
+       
+        {/* Skills, Experience & Education - Three Column Layout */}
+        <section className="mb-20">
+          <div className="grid lg:grid-cols-3 gap-8">
+            
+            {/* Skills Column */}
+            <div className="bg-gray-800/20 backdrop-blur-xl border border-indigo-500/20 rounded-2xl p-6">
+              <div className="text-center mb-8">
+                <div className="flex items-center justify-center mb-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center mr-3">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
                   </div>
-                ))}
+                  <h2 className="text-2xl font-bold text-white">Skills</h2>
+                </div>
               </div>
-            </div>
-
-            {/* Technical Skills Tab */}
-            <div
-              className={`transition-opacity duration-500 ${
-                activeTab === "technical"
-                  ? "block opacity-100"
-                  : "hidden opacity-0"
-              }`}
-            >
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-800 mb-4 md:mb-6">
-                Technical Skills
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-                {technicalSkills.map((skill, idx) => (
+              
+              <div className="flex flex-wrap gap-2">
+                {skills.map((skill, idx) => (
                   <div
                     key={idx}
-                    className="bg-gray-50 rounded-lg md:rounded-xl p-3 md:p-4 border border-purple-100 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
+                    className="group bg-gray-800/40 backdrop-blur-sm border border-indigo-500/30 rounded-lg px-3 py-2 hover:border-indigo-400/50 transition-all duration-300 hover:bg-gray-700/40"
                   >
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-semibold text-sm md:text-base text-gray-800">
-                        {skill.name}
-                      </span>
-                      <span className="text-xs md:text-sm font-bold text-purple-600">
-                        {skill.level}%
+                    <span className="text-gray-200 font-medium text-sm group-hover:text-white transition-colors">{skill}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Experience Column */}
+            <div className="bg-gray-800/20 backdrop-blur-xl border border-indigo-500/20 rounded-2xl p-6">
+              <div className="text-center mb-8">
+                <div className="flex items-center justify-center mb-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center mr-3">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
+                    </svg>
+                  </div>
+                  <h2 className="text-2xl font-bold text-white">Experience</h2>
+                </div>
+              </div>
+              
+              <div className="space-y-6">
+                {[
+                  {
+                    period: "2025 - Present",
+                    role: "Web Developer",
+                    company: "Clothing In Nepal",
+                    description: "Leading development of responsive e-commerce solutions.",
+                    technologies: ["React", "Node.js", "MongoDB"],
+                  },
+                  {
+                    period: "2024",
+                    role: "Full-Stack Developer Intern",
+                    company: "N9 Solution",
+                    description: "Collaborated on enterprise-level projects.",
+                    technologies: ["MERN Stack", "API Development"],
+                  },
+                ].map((job, idx) => (
+                  <div key={idx} className="bg-gray-800/30 rounded-xl p-5 border border-indigo-500/20">
+                    <div className="mb-3">
+                      <h3 className="text-lg font-bold text-white mb-1">{job.role}</h3>
+                      <p className="text-indigo-300 font-medium text-sm">{job.company}</p>
+                      <span className="text-xs text-gray-400 bg-gray-700/50 px-2 py-1 rounded mt-1 inline-block">
+                        {job.period}
                       </span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-1.5 md:h-2">
-                      <div
-                        className="bg-gradient-to-r from-purple-400 to-purple-600 h-1.5 md:h-2 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
+                    <p className="text-gray-300 text-sm mb-3 leading-relaxed">{job.description}</p>
+                    <div className="flex flex-wrap gap-1">
+                      {job.technologies.map((tech, techIdx) => (
+                        <span key={techIdx} className="px-2 py-1 text-xs bg-indigo-600/20 text-indigo-300 rounded border border-indigo-500/30">
+                          {tech}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Experience Tab */}
-            <div
-              className={`transition-opacity duration-500 ${
-                activeTab === "experience"
-                  ? "block opacity-100"
-                  : "hidden opacity-0"
-              }`}
-            >
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-800 mb-4 md:mb-6">
-                Experience
-              </h2>
-              <div className="space-y-4 md:space-y-6">
-                <div className="relative border-l-2 border-purple-300 pl-4 sm:pl-6 pb-4 sm:pb-6">
-                  <div className="absolute -left-1.5 sm:-left-2 top-0 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-purple-600"></div>
-                  <div className="bg-gray-50 rounded-lg p-3 sm:p-4 md:p-5 hover:shadow-md transition-shadow">
-                    <div className="inline-block px-2 sm:px-3 py-1 text-xs font-semibold text-purple-600 bg-purple-100 rounded-full mb-2">
-                      2025-present
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-800">
-                      Web Developer
-                    </h3>
-                    <p className="text-sm md:text-base text-gray-600 mt-1">
-                      Clothing In Nepal
-                    </p>
-                    <p className="mt-2 md:mt-3 text-sm md:text-base text-gray-700">
-                      Developing responsive and user-friendly web applications,
-                      implementing modern frontend frameworks and ensuring
-                      optimal performance.
-                    </p>
+            {/* Education Column */}
+            <div className="bg-gray-800/20 backdrop-blur-xl border border-indigo-500/20 rounded-2xl p-6">
+              <div className="text-center mb-8">
+                <div className="flex items-center justify-center mb-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center mr-3">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                    </svg>
                   </div>
-                </div>
-
-                <div className="relative border-l-2 border-purple-300 pl-4 sm:pl-6 pb-4 sm:pb-6">
-                  <div className="absolute -left-1.5 sm:-left-2 top-0 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-purple-600"></div>
-                  <div className="bg-gray-50 rounded-lg p-3 sm:p-4 md:p-5 hover:shadow-md transition-shadow">
-                    <div className="inline-block px-2 sm:px-3 py-1 text-xs font-semibold text-purple-600 bg-purple-100 rounded-full mb-2">
-                      2024
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-800">
-                      Fullstack Intern and Traineeship
-                    </h3>
-                    <p className="text-sm md:text-base text-gray-600 mt-1">
-                      N9 Solution
-                    </p>
-                    <p className="mt-2 md:mt-3 text-sm md:text-base text-gray-700">
-                      Gained hands-on experience with both frontend and backend
-                      technologies, collaborating with senior developers on
-                      real-world projects.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="relative border-l-2 border-purple-300 pl-4 sm:pl-6">
-                  <div className="absolute -left-1.5 sm:-left-2 top-0 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-purple-600"></div>
-                  <div className="bg-gray-50 rounded-lg p-3 sm:p-4 md:p-5 hover:shadow-md transition-shadow">
-                    <div className="inline-block px-2 sm:px-3 py-1 text-xs font-semibold text-purple-600 bg-purple-100 rounded-full mb-2">
-                      2021-2023
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-800">
-                      English Tutor
-                    </h3>
-                    <p className="text-sm md:text-base text-gray-600 mt-1">
-                      Atlantic English Secondary School
-                    </p>
-                    <p className="mt-2 md:mt-3 text-sm md:text-base text-gray-700">
-                      Developed strong communication and teaching skills while
-                      helping students improve their English language
-                      proficiency.
-                    </p>
-                  </div>
+                  <h2 className="text-2xl font-bold text-white">Education</h2>
                 </div>
               </div>
-            </div>
-
-            {/* Education Tab */}
-            <div
-              className={`transition-opacity duration-500 ${
-                activeTab === "education"
-                  ? "block opacity-100"
-                  : "hidden opacity-0"
-              }`}
-            >
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-800 mb-4 md:mb-6">
-                Education
-              </h2>
-              <div className="space-y-4 md:space-y-6">
-                <div className="relative border-l-2 border-purple-300 pl-4 sm:pl-6 pb-4 sm:pb-6">
-                  <div className="absolute -left-1.5 sm:-left-2 top-0 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-purple-600"></div>
-                  <div className="bg-gray-50 rounded-lg p-3 sm:p-4 md:p-5 hover:shadow-md transition-shadow">
-                    <div className="inline-block px-2 sm:px-3 py-1 text-xs font-semibold text-purple-600 bg-purple-100 rounded-full mb-2">
-                      2021-Present
+              
+              <div className="space-y-6">
+                {[
+                  {
+                    period: "2021 - Present",
+                    degree: "Bachelor in Computer Application",
+                    institution: "Jaya Multiple Campus",
+                    description: "Computer science fundamentals and web development.",
+                    status: "Currently Pursuing"
+                  },
+                  {
+                    period: "2019 - 2021",
+                    degree: "Higher Secondary Education (+2)",
+                    institution: "Indreswori Secondary School",
+                    description: "Business studies and mathematics specialization.",
+                    status: "Completed"
+                  },
+                ].map((edu, idx) => (
+                  <div key={idx} className="bg-gray-800/30 rounded-xl p-5 border border-indigo-500/20">
+                    <div className="mb-3">
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="text-lg font-bold text-white">{edu.degree}</h3>
+                        <span className={`px-2 py-1 text-xs rounded-full ${
+                          edu.status === 'Currently Pursuing' 
+                            ? 'bg-green-600/20 text-green-300 border border-green-500/30' 
+                            : 'bg-blue-600/20 text-blue-300 border border-blue-500/30'
+                        }`}>
+                          {edu.status}
+                        </span>
+                      </div>
+                      <p className="text-indigo-300 font-medium text-sm mb-1">{edu.institution}</p>
+                      <span className="text-xs text-gray-400 bg-gray-700/50 px-2 py-1 rounded">
+                        {edu.period}
+                      </span>
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-800">
-                      Bachelor in Computer Application
-                    </h3>
-                    <p className="text-sm md:text-base text-gray-600 mt-1">
-                      Jaya Multiple Campus
-                    </p>
-                    <p className="mt-2 md:mt-3 text-sm md:text-base text-gray-700">
-                      Focusing on computer science fundamentals, web
-                      development, and software engineering principles.
-                    </p>
+                    <p className="text-gray-300 text-sm leading-relaxed">{edu.description}</p>
                   </div>
-                </div>
-
-                <div className="relative border-l-2 border-purple-300 pl-4 sm:pl-6 pb-4 sm:pb-6">
-                  <div className="absolute -left-1.5 sm:-left-2 top-0 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-purple-600"></div>
-                  <div className="bg-gray-50 rounded-lg p-3 sm:p-4 md:p-5 hover:shadow-md transition-shadow">
-                    <div className="inline-block px-2 sm:px-3 py-1 text-xs font-semibold text-purple-600 bg-purple-100 rounded-full mb-2">
-                      2019-2021
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-800">
-                      School Leaving Certificate / 10+2
-                    </h3>
-                    <p className="text-sm md:text-base text-gray-600 mt-1">
-                      Indreswori Secondary School
-                    </p>
-                    <p className="mt-2 md:mt-3 text-sm md:text-base text-gray-700">
-                      Completed higher secondary education with a focus on
-                      business and mathematics.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="relative border-l-2 border-purple-300 pl-4 sm:pl-6">
-                  <div className="absolute -left-1.5 sm:-left-2 top-0 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-purple-600"></div>
-                  <div className="bg-gray-50 rounded-lg p-3 sm:p-4 md:p-5 hover:shadow-md transition-shadow">
-                    <div className="inline-block px-2 sm:px-3 py-1 text-xs font-semibold text-purple-600 bg-purple-100 rounded-full mb-2">
-                      2019
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-800">
-                      Secondary Education Examination
-                    </h3>
-                    <p className="text-sm md:text-base text-gray-600 mt-1">
-                      Bal Sudhar Secondary School
-                    </p>
-                    <p className="mt-2 md:mt-3 text-sm md:text-base text-gray-700">
-                      Completed basic education with excellent academic
-                      performance.
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
+          </div>
+        </section>
 
-            {/* Hackathons Tab - NEW SECTION */}
-            <div
-              className={`transition-opacity duration-500 ${
-                activeTab === "hackathons"
-                  ? "block opacity-100"
-                  : "hidden opacity-0"
-              }`}
-            >
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-800 mb-4 md:mb-6">
-                Hackathon Experiences
-              </h2>
-              <p className="text-sm md:text-base text-gray-700 mb-6">
-                I'm passionate about participating in hackathons to solve
-                real-world problems, collaborate with talented developers, and
-                push my creative boundaries.
-              </p>
-
-              {/* Hackathon Photo Gallery */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6">
-                {hackathonPhotos.map((photo) => (
-                  <div
-                    key={photo.id}
-                    className="bg-gray-50 rounded-lg overflow-hidden border border-purple-100 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-                  >
-                    <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
-                      <img
-                        src={photo.image}
-                        alt={photo.title}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                      />
-                      <div className="absolute top-3 right-3">
-                        <span className="inline-block px-2 py-1 text-xs font-semibold text-purple-600 bg-white bg-opacity-90 rounded-full">
-                          {photo.date}
+        {/* Achievements Section */}
+        <section className="mb-20">
+          <div className="bg-gray-800/20 backdrop-blur-xl border border-indigo-500/20 rounded-2xl p-8 md:p-12">
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                  </svg>
+                </div>
+                <h2 className="text-4xl font-bold text-white">Achievements</h2>
+              </div>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              {achievements.map((achievement) => (
+                <div
+                  key={achievement.id}
+                  className="group bg-gray-800/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-indigo-500/30 hover:border-indigo-400/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/20"
+                >
+                  <div className="relative h-64 overflow-hidden">
+                    <img
+                      src={achievement.image}
+                      alt={achievement.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent"></div>
+                    
+                    <div className="absolute top-4 right-4">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full blur-sm opacity-60"></div>
+                        <span className="relative px-4 py-2 text-sm font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full shadow-lg border border-white/20">
+                          {achievement.award}
                         </span>
                       </div>
                     </div>
-                    <div className="p-4">
-                      <h3 className="text-lg font-bold text-gray-800 mb-1">
-                        {photo.title}
-                      </h3>
-                      <p className="text-sm text-gray-700">
-                        {photo.description}
-                      </p>
+                    
+                    <div className="absolute bottom-4 left-4">
+                      <span className="px-3 py-1 text-sm font-medium bg-gray-900/80 backdrop-blur-sm text-indigo-300 rounded-lg border border-indigo-500/30">
+                        {achievement.date}
+                      </span>
                     </div>
+                    
+                    <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-indigo-400/50 rounded-tl-2xl"></div>
                   </div>
-                ))}
-              </div>
 
-              {/* Add Hackathon Achievement or Highlight */}
-              <div className="mt-8 p-4 sm:p-5 bg-purple-50 border border-purple-100 rounded-lg">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="p-3 bg-purple-100 rounded-full">
-                      <svg
-                        className="w-8 h-8 text-purple-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                        ></path>
-                      </svg>
+                  <div className="p-8">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className="text-2xl font-bold text-white group-hover:text-indigo-300 transition-colors duration-300">
+                        {achievement.title}
+                      </h3>
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 flex items-center justify-center">
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-purple-800">
-                      Hackathon Highlight
-                    </h3>
-                    <p className="text-sm md:text-base text-gray-700 mt-2">
-                      Participating in the hackathon challenged me to think
-                      creatively under pressure and strengthened my ability to
-                      work collaboratively in a fast-paced environment.
-                      Throughout the event, I enhanced my technical skills by
-                      applying AI tools to real-world problems, and learned how
-                      to build user-focused solutions that address genuine
-                      community needs. This experience helped me improve my
-                      problem-solving abilities, adapt quickly to feedback, and
-                      manage tasks effectively within limited time. It also
-                      deepened my understanding of the impact technology can
-                      have in creating social change, especially in making
-                      education more inclusive for underserved communities.
+                    
+                    <p className="text-gray-300 text-base leading-relaxed mb-4">
+                      {achievement.description}
                     </p>
+                    
+                    <div className="w-full h-1 bg-gray-700/50 rounded-full overflow-hidden">
+                      <div className="h-full bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Call to Action */}
-        <div className="flex justify-center mt-2 sm:mt-4 md:mt-6 mb-4 sm:mb-6 lg:mb-0">
-          <Link to="contact" smooth={true} offset={-70} duration={500}>
-            <button className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-purple-500 p-0.5 text-sm sm:text-base md:text-lg font-bold text-white shadow-lg transition-all hover:shadow-xl">
-              <span className="relative px-6 sm:px-7 md:px-8 py-2.5 sm:py-3 md:py-3.5 transition-all duration-300 ease-out group-hover:bg-opacity-0">
-                LET'S CONNECT
-                <svg
-                  className="w-4 h-4 sm:w-5 sm:h-5 ml-2 -mr-1 inline-block"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </Link>
+        {/* CTA Section */}
+        <div className="text-center">
+          <div className="bg-gray-800/20 backdrop-blur-xl border border-indigo-500/20 rounded-2xl p-12">
+            <h3 className="text-3xl font-bold text-white mb-6">Ready to Build Something Amazing?</h3>
+            <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+              Let's collaborate and turn your ideas into digital reality. I'm always excited to work on new challenges.
+            </p>
+            <Link to="contact" smooth={true} offset={-70} duration={500}>
+              <button className="group relative inline-flex items-center justify-center overflow-hidden rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-10 py-5 text-lg font-semibold shadow-lg transition-all hover:shadow-xl hover:scale-105">
+                <span className="relative z-10 flex items-center">
+                  Let's Work Together
+                  <svg className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </svg>
+                </span>
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
-
-      {/* Add style for hiding scrollbar but allowing scrolling */}
-      <style jsx>{`
-        .no-scrollbar {
-          -ms-overflow-style: none; /* IE and Edge */
-          scrollbar-width: none; /* Firefox */
-        }
-        .no-scrollbar::-webkit-scrollbar {
-          display: none; /* Chrome, Safari and Opera */
-        }
-      `}</style>
     </div>
   );
 };
