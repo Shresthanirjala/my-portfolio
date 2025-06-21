@@ -39,7 +39,7 @@ const App = () => {
           }
         />
 
-        {/* Dynamic project detail route */}
+
       
       </Routes>
     </div>

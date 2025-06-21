@@ -98,13 +98,11 @@ const Footer = () => {
                 NIRJALA SHRESTHA
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full mb-6">
-                <div className="h-full w-full bg-gradient-to-r from-indigo-400 to-blue-400 animate-shimmer rounded-full"></div>
+                <div className="h-full w-full bg-gradient-to-r from-indigo-400 to-blue-400 rounded-full"></div>
               </div>
             </div>
             <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-              Frontend focused Web Developer building the Frontend of Websites
-              and Web Applications that leads to the success of the overall
-              product.
+              Fullstack Web Developer crafting both the Frontend and Backend of Websites and Web Applications to deliver seamless, scalable, and successful digital experiences.
             </p>
             <div className="flex items-center gap-2 text-gray-400">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>

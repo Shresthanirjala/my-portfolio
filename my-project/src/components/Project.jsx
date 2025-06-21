@@ -106,7 +106,6 @@ const Project = () => {
 
 // Project Card Component
 const ProjectCard = ({ project }) => {
-  // Use 'link' as the live URL for redirection
   const liveUrl = project.link;
   return (
     <div
