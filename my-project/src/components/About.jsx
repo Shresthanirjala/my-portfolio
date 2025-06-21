@@ -217,7 +217,7 @@ const About = () => {
             <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text font-semibold animate-gradient-smooth">
               full-stack developer
             </span>{" "}
-            who creates efficient, scalable web solutions
+        and a final-year BCA student with a strong passion for building efficient, scalable web solutions. With hands-on experience in both frontend and backend technologies, I enjoy turning ideas into reality through clean, user-focused design and robust engineering.
           </p>
           <div className="flex items-center justify-center gap-4 text-sm text-gray-400 animate-fade-in-up-delay-2">
             <div className="flex items-center gap-2">
