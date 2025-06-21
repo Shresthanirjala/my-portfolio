@@ -59,6 +59,16 @@ const projects = [
     link: "https://nverse0.wordpress.com/",
     gallery: ["/blog1.png"],
   },
+    {
+    id: 5,
+    title: "AI-Powered Application",
+    shortdescription:
+      "SpeakEasyAI is an AI-powered app built with Next.js, Django, and OpenAI that transcribes speech into real-time subtitles. It helps the deaf and hard of hearing engage in live conversations with ease.",
+    image: "/blog1.png",
+    tools: ["Nextjs, django, openai"],
+    link: "#",
+    gallery: ["/blog1.png"],
+  },
 ];
 
 export default projects;

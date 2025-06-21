@@ -317,7 +317,7 @@ const Landing = () => {
                       transition: "transform 0.4s ease-out, filter 0.3s ease",
                       maskImage: `radial-gradient(ellipse 100% 100% at center, black 70%, transparent 100%)`,
                       WebkitMaskImage: `radial-gradient(ellipse 100% 100% at center, black 70%, transparent 100%)`,
-                      filter: `brightness(1.1) contrast(1.15) saturate(1.1) drop-shadow(0 0 30px rgba(99, 102, 241, 0.1))`,
+                      filter: "none",
                       background: "none",
                       boxShadow: "none",
                       border: "none",
