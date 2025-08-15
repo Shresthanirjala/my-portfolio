@@ -10,7 +10,8 @@ const About = () => {
   // Optimized mouse tracking with throttling
   const handleMouseMove = useCallback((e) => {
     const now = Date.now();
-    if (now - lastUpdateTime.current > 16) { // ~60fps throttling
+    if (now - lastUpdateTime.current > 16) {
+      // ~60fps throttling
       const newPosition = { x: e.clientX, y: e.clientY };
       setMousePosition(newPosition);
       lastUpdateTime.current = now;
@@ -20,9 +21,9 @@ const About = () => {
   // Smooth cursor trail with optimized updates
   useEffect(() => {
     const updateTrail = () => {
-      setCursorTrail(prev => {
+      setCursorTrail((prev) => {
         if (prev.length === 0) return [mousePosition];
-        
+
         // Smooth interpolation for trail points
         const newTrail = [mousePosition];
         for (let i = 0; i < Math.min(8, prev.length); i++) {
@@ -30,7 +31,7 @@ const About = () => {
           const factor = 0.85; // Smooth follow factor
           newTrail.push({
             x: prevPoint.x + (mousePosition.x - prevPoint.x) * (1 - factor),
-            y: prevPoint.y + (mousePosition.y - prevPoint.y) * (1 - factor)
+            y: prevPoint.y + (mousePosition.y - prevPoint.y) * (1 - factor),
           });
         }
         return newTrail;
@@ -64,7 +65,8 @@ const About = () => {
       period: "2025",
       role: "Web Developer",
       company: "Clothing In Nepal",
-      description: "Leading development of responsive e-commerce solutions with wordpress.",
+      description:
+        "Leading development of responsive e-commerce solutions with wordpress.",
       technologies: ["wordpress"],
       type: "Full-time",
     },
@@ -72,7 +74,8 @@ const About = () => {
       period: "2024",
       role: "Full-Stack Developer Intern",
       company: "N9 Solution",
-      description: "Collaborated on enterprise-level projects and API development.",
+      description:
+        "Collaborated on enterprise-level projects and API development.",
       technologies: ["MERN Stack", "API Development"],
       type: "Internship",
     },
@@ -86,6 +89,7 @@ const About = () => {
       date: "April 2025",
       award: "Top 4 Finalist",
       image: "/hackathon1.jpg",
+      link: "https://www.linkedin.com/posts/nirjala-shrestha-2b1624289_himalaihackathon-firsthackathon-honorablemention-activity-7317567018604404737-_xC8?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEYJlqUBODqn4P66q1zRcjX6tQQYLkdJv2g",
     },
     {
       id: 2,
@@ -94,8 +98,24 @@ const About = () => {
       date: "April 2025",
       award: "AI Track Winner",
       image: "/Hackathon2.JPG",
+      link: "https://www.linkedin.com/posts/nirjala-shrestha-2b1624289_galexen-hackathonjourney-gratitude-activity-7322635570734624768-zTb_?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEYJlqUBODqn4P66q1zRcjX6tQQYLkdJv2g",
+    },
+    {
+      id: 3,
+      title: "Solana Spotlight: Bringing Web3 to Everyday Nepalis",
+      description: "Bounty Winner in Content Creation",
+      date: "July 2025",
+      award: "1st Runner Up",
+      image: "/solana.jpg",
+      link: "https://x.com/nirjalas437/status/1940959805063286885", 
     },
   ];
+
+  const handleAchievementClick = (link) => {
+    if (link && link !== "#") {
+      window.open(link, "_blank", "noopener,noreferrer");
+    }
+  };
 
   return (
     <div
@@ -104,30 +124,32 @@ const About = () => {
     >
       {/* Optimized Magic Cursor */}
       <div className="fixed inset-0 pointer-events-none z-50">
-        {/* Simplified outer glow with GPU acceleration */}
+       
         <div
           className="absolute w-8 h-8 rounded-full will-change-transform"
           style={{
             left: mousePosition.x - 16,
             top: mousePosition.y - 16,
-            background: 'radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(147, 51, 234, 0.2) 50%, transparent 100%)',
-            filter: 'blur(8px)',
-            transform: 'translate3d(0, 0, 0)',
+            background:
+              "radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(147, 51, 234, 0.2) 50%, transparent 100%)",
+            filter: "blur(8px)",
+            transform: "translate3d(0, 0, 0)",
           }}
         />
-        
+
         {/* Main cursor point with smooth transition */}
         <div
           className="absolute w-3 h-3 rounded-full will-change-transform"
           style={{
             left: mousePosition.x - 6,
             top: mousePosition.y - 6,
-            background: 'radial-gradient(circle, #60a5fa 0%, #a855f7 100%)',
-            boxShadow: '0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(147, 51, 234, 0.4)',
-            transform: 'translate3d(0, 0, 0)',
+            background: "radial-gradient(circle, #60a5fa 0%, #a855f7 100%)",
+            boxShadow:
+              "0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(147, 51, 234, 0.4)",
+            transform: "translate3d(0, 0, 0)",
           }}
         />
-        
+
         {/* Optimized cursor trail */}
         {cursorTrail.slice(1, 6).map((point, index) => (
           <div
@@ -138,13 +160,15 @@ const About = () => {
               top: point.y - (3 - index * 0.3),
               width: Math.max(2, 6 - index * 1),
               height: Math.max(2, 6 - index * 1),
-              background: `radial-gradient(circle, rgba(96, 165, 250, ${0.6 - index * 0.12}) 0%, rgba(168, 85, 247, ${0.3 - index * 0.06}) 100%)`,
+              background: `radial-gradient(circle, rgba(96, 165, 250, ${
+                0.6 - index * 0.12
+              }) 0%, rgba(168, 85, 247, ${0.3 - index * 0.06}) 100%)`,
               filter: `blur(${index * 0.5}px)`,
-              transform: 'translate3d(0, 0, 0)',
+              transform: "translate3d(0, 0, 0)",
             }}
           />
         ))}
-        
+
         {/* Simplified magic sparkles with CSS animations */}
         {[...Array(4)].map((_, i) => (
           <div
@@ -154,7 +178,7 @@ const About = () => {
               left: mousePosition.x + Math.cos(i * 1.57) * 30,
               top: mousePosition.y + Math.sin(i * 1.57) * 30,
               animationDelay: `${i * 0.25}s`,
-              transform: 'translate3d(0, 0, 0)',
+              transform: "translate3d(0, 0, 0)",
             }}
           />
         ))}
@@ -168,7 +192,7 @@ const About = () => {
           <div className="absolute top-32 left-24 w-6 h-6 bg-gradient-to-br from-purple-400/25 to-cyan-400/25 rounded-full animate-bubble-smooth-delay border border-purple-400/20 backdrop-blur-sm" />
           <div className="absolute top-24 left-6 w-4 h-4 bg-gradient-to-br from-cyan-400/30 to-indigo-400/30 rounded-full animate-bubble-smooth-2 border border-cyan-400/25 backdrop-blur-sm" />
         </div>
-        
+
         {/* Top Right Corner - Simplified */}
         <div className="absolute top-0 right-0 w-80 h-80 overflow-hidden">
           <div className="absolute top-20 right-16 w-7 h-7 bg-gradient-to-br from-purple-400/22 to-blue-400/22 rounded-full animate-bubble-smooth-3 border border-purple-400/20 backdrop-blur-sm" />
@@ -180,11 +204,22 @@ const About = () => {
       <div
         className="absolute w-[500px] h-[500px] rounded-full blur-3xl will-change-transform"
         style={{
-          left: `${(mousePosition.x / (typeof window !== 'undefined' ? window.innerWidth : 1920)) * 100 - 25}%`,
-          top: `${(mousePosition.y / (typeof window !== 'undefined' ? window.innerHeight : 1080)) * 100 - 25}%`,
-          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(147, 51, 234, 0.04) 50%, transparent 100%)',
-          transform: 'translate3d(0, 0, 0)',
-          transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+          left: `${
+            (mousePosition.x /
+              (typeof window !== "undefined" ? window.innerWidth : 1920)) *
+              100 -
+            25
+          }%`,
+          top: `${
+            (mousePosition.y /
+              (typeof window !== "undefined" ? window.innerHeight : 1080)) *
+              100 -
+            25
+          }%`,
+          background:
+            "radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(147, 51, 234, 0.04) 50%, transparent 100%)",
+          transform: "translate3d(0, 0, 0)",
+          transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
         }}
       />
 
@@ -217,7 +252,10 @@ const About = () => {
             <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text font-semibold animate-gradient-smooth">
               full-stack developer
             </span>{" "}
-        and a final-year BCA student with a strong passion for building efficient, scalable web solutions. With hands-on experience in both frontend and backend technologies, I enjoy turning ideas into reality through clean, user-focused design and robust engineering.
+            and a final-year BCA student with a strong passion for building
+            efficient, scalable web solutions. With hands-on experience in both
+            frontend and backend technologies, I enjoy turning ideas into
+            reality through clean, user-focused design and robust engineering.
           </p>
           <div className="flex items-center justify-center gap-4 text-sm text-gray-400 animate-fade-in-up-delay-2">
             <div className="flex items-center gap-2">
@@ -304,8 +342,11 @@ const About = () => {
           </div>
         </div>
 
-        {/* Achievements Section */}
-        <div className="mb-16 animate-fade-in-up" style={{ animationDelay: "0.8s" }}>
+        {/* Achievements Section - Updated to display 3 cards in one row */}
+        <div
+          className="mb-16 animate-fade-in-up"
+          style={{ animationDelay: "0.8s" }}
+        >
           <div className="text-center mb-10">
             <h3 className="text-3xl font-bold text-white mb-3">
               Achievements & Recognition
@@ -315,14 +356,15 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 max-w-6xl mx-auto">
             {achievements.map((achievement, index) => (
               <div
                 key={achievement.id}
-                className="group animate-fade-in-up"
+                className="group animate-fade-in-up cursor-pointer"
                 style={{ animationDelay: `${1 + index * 0.2}s` }}
+                onClick={() => handleAchievementClick(achievement.link)}
               >
-                <div className="bg-gray-900/40 backdrop-blur-lg border border-gray-800/50 rounded-2xl overflow-hidden hover:border-blue-500/30 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300">
+                <div className="bg-gray-900/40 backdrop-blur-lg border border-gray-800/50 rounded-2xl overflow-hidden hover:border-blue-500/30 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 h-full">
                   <div className="aspect-video bg-gray-800/50 overflow-hidden relative">
                     <img
                       src={achievement.image}
@@ -330,12 +372,20 @@ const About = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {/* Click indicator */}
+                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="w-8 h-8 bg-blue-500/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-blue-500/30">
+                        <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
-                  <div className="p-6">
+                  <div className="p-6 flex-1 flex flex-col">
                     <h4 className="font-bold text-lg text-white mb-2 group-hover:text-blue-300 transition-colors duration-200">
                       {achievement.title}
                     </h4>
-                    <p className="text-sm text-gray-300 mb-4">
+                    <p className="text-sm text-gray-300 mb-4 flex-1">
                       {achievement.description}
                     </p>
                     <div className="flex items-center justify-between">
@@ -356,18 +406,20 @@ const About = () => {
 
       <style jsx>{`
         @keyframes sparkle-smooth {
-          0%, 100% { 
-            opacity: 0.3; 
-            transform: scale(0.5) rotate(0deg); 
+          0%,
+          100% {
+            opacity: 0.3;
+            transform: scale(0.5) rotate(0deg);
           }
-          50% { 
-            opacity: 1; 
-            transform: scale(1.2) rotate(180deg); 
+          50% {
+            opacity: 1;
+            transform: scale(1.2) rotate(180deg);
           }
         }
 
         @keyframes bubble-smooth {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0px) translateX(0px) scale(1);
             opacity: 0.6;
           }
@@ -378,7 +430,8 @@ const About = () => {
         }
 
         @keyframes bubble-smooth-delay {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0px) translateX(0px) scale(1);
             opacity: 0.5;
           }
@@ -389,7 +442,8 @@ const About = () => {
         }
 
         @keyframes bubble-smooth-2 {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0px) translateX(0px) scale(1);
             opacity: 0.7;
           }
@@ -400,7 +454,8 @@ const About = () => {
         }
 
         @keyframes bubble-smooth-3 {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0px) translateX(0px) scale(1);
             opacity: 0.6;
           }
@@ -444,7 +499,8 @@ const About = () => {
         }
 
         @keyframes gradient-smooth {
-          0%, 100% {
+          0%,
+          100% {
             background-position: 0% 50%;
           }
           50% {
@@ -453,7 +509,8 @@ const About = () => {
         }
 
         @keyframes pulse-smooth {
-          0%, 100% {
+          0%,
+          100% {
             opacity: 0.3;
           }
           50% {
