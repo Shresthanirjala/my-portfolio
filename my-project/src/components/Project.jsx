@@ -59,7 +59,6 @@ const Project = () => {
         </div>
 
         {/* Tags Filter */}
-      
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -113,7 +112,6 @@ const ProjectCard = ({ project }) => {
                 {tech}
               </span>
             ))}
-          
           </div>
         </div>
       )}
@@ -125,7 +123,6 @@ const ProjectCard = ({ project }) => {
           alt={project.title}
           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
         />
-      
       </div>
 
       {/* Content */}
