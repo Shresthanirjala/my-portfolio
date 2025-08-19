@@ -139,9 +139,10 @@ const Landing = () => {
               <Typewriter
                 options={{
                   strings: [
-                    "Full Stack Developer",
+                    "Frontend Developer",
+                    "Software Developer",
                     "UI/UX Designer",
-                    "Problem Solver",
+                    
                   ],
                   autoStart: true,
                   loop: true,
@@ -155,7 +156,7 @@ const Landing = () => {
             </div>
 
             <p className="text-lg text-gray-400 leading-relaxed max-w-2xl">
-              Crafting digital experiences through innovative web development
+              Crafting digital experiences through innovative software development
               and thoughtful design. I specialize in building scalable
               applications with modern technologies, focusing on performance,
               accessibility, and user experience.

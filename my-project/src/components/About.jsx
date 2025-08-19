@@ -61,30 +61,22 @@ const About = () => {
   ];
 
   const experiences = [
+   
     {
-      period: "2025",
-      role: "Web Developer",
-      company: "Clothing In Nepal",
-      description:
-        "Leading development of responsive e-commerce solutions with wordpress.",
-      technologies: ["wordpress"],
-      type: "Full-time",
-    },
-    {
-      period: "2024",
-      role: "Full-Stack Developer Intern",
+      period: "2024-present",
+      role: "Frontend Developer",
       company: "N9 Solution",
       description:
         "Collaborated on enterprise-level projects and API development.",
-      technologies: ["MERN Stack", "API Development"],
-      type: "Internship",
+      technologies: ["React ", "Nextjs ", "Javascript ", "Tailwind css", "API Development"],
+  
     },
   ];
 
   const achievements = [
     {
       id: 1,
-      title: "himalAi 2024",
+      title: "HimalAi 2024",
       description: "Top 4 finalist in AI innovation hackathon",
       date: "April 2025",
       award: "Top 4 Finalist",
@@ -250,11 +242,11 @@ const About = () => {
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 animate-fade-in-up-delay">
             I'm a{" "}
             <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text font-semibold animate-gradient-smooth">
-              full-stack developer
+              Frontend Developer
             </span>{" "}
             and a final-year BCA student with a strong passion for building
             efficient, scalable web solutions. With hands-on experience in both
-            frontend and backend technologies, I enjoy turning ideas into
+            frontend technologies, I enjoy turning ideas into
             reality through clean, user-focused design and robust engineering.
           </p>
           <div className="flex items-center justify-center gap-4 text-sm text-gray-400 animate-fade-in-up-delay-2">
@@ -352,7 +344,7 @@ const About = () => {
               Achievements & Recognition
             </h3>
             <p className="text-gray-400">
-              Key milestones in my development journey
+              Key milestones in my tech journey
             </p>
           </div>
 

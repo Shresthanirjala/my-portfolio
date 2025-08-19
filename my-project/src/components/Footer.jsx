@@ -102,7 +102,8 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-              Fullstack Web Developer crafting both the Frontend and Backend of Websites and Web Applications to deliver seamless, scalable, and successful digital experiences.
+              Software Developer crafting both the Frontend Web Applications to
+              deliver seamless, scalable, and successful digital experiences.
             </p>
             <div className="flex items-center gap-2 text-gray-400">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
