@@ -54,8 +54,8 @@ const projects = [
     image: "/eshop2.png",
     tags: ["React", "JavaScript", "Tailwind CSS"],
 
-    link: "#",
-    liveUrl: "#",
+    link: "https://e-shop-eight-sepia.vercel.app/",
+
     githubUrl: "https://github.com/username/e-shop",
     date: "2024",
     gallery: ["/eshop2.png"],
@@ -82,7 +82,7 @@ const projects = [
       "SpeakEasyAI is an AI-powered app built with Next.js, Django, and OpenAI that transcribes speech into real-time subtitles.",
     image: "/speakeasyai.png",
     tags: ["Next.js", "Django", "OpenAI"],
-  githubUrl: "https://github.com/username/e-shop",
+    githubUrl: "https://github.com/username/e-shop",
     gallery: ["/speakeasyai.png"],
   },
 
@@ -96,7 +96,6 @@ const projects = [
     githubUrl: "https://github.com/username/speakeasyai",
     tags: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS"],
   },
-   
 ];
 
 export default projects;
