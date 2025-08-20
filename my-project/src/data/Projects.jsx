@@ -1,20 +1,5 @@
 const projects = [
   {
-    id: 1,
-    title: "Shoes Store",
-    shortdescription:
-      "This is a simple e-commerce website for buying Nike shoes, built with HTML, CSS, and JavaScript.",
-
-    image: "/shoesstore.png",
-    tags: ["HTML", "JavaScript", "CSS"],
-    tools: ["Html", "JavaScript", "CSS"],
-    link: "#",
-    liveUrl: "#",
-    githubUrl: "https://github.com/username/shoes-store",
-    date: "2024",
-    gallery: ["/shoesstore.png"],
-  },
-  {
     id: 2,
     title: "E-commerce Pet Store",
     shortdescription:
@@ -60,23 +45,9 @@ const projects = [
     date: "2024",
     gallery: ["/eshop2.png"],
   },
+
   {
     id: 5,
-    title: "Blogs",
-    shortdescription:
-      "A simple blogging website built with WordPress, featuring a clean, minimal design for distraction-free reading.",
-
-    image: "/blog1.png",
-    tags: ["WordPress"],
-
-    link: "https://nverse0.wordpress.com/",
-    liveUrl: "https://nverse0.wordpress.com/",
-    githubUrl: null,
-    date: "2024",
-    gallery: ["/blog1.png"],
-  },
-  {
-    id: 6,
     title: "AI-Powered Application",
     shortdescription:
       "SpeakEasyAI is an AI-powered app built with Next.js, Django, and OpenAI that transcribes speech into real-time subtitles.",
@@ -87,7 +58,7 @@ const projects = [
   },
 
   {
-    id: 8,
+    id: 6,
     title: "Job Portal System",
     shortdescription:
       "A MERN-stack powered Job Portal where employers can post jobs, job seekers can apply, and admins can manage the platform with ease.",
