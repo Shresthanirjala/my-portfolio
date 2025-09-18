@@ -65,6 +65,7 @@ const projects = [
 
     image: "/jobportal.png",
     githubUrl: "https://github.com/username/speakeasyai",
+    liveUrl: "https://nirjalajobportal.vercel.app/",
     tags: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS"],
   },
 ];

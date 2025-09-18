@@ -119,9 +119,9 @@ const Contact = () => {
       email: validateEmail(formData.email),
       message: validateMessage(formData.message),
     };
-    
+
     setErrors(newErrors);
-    return !Object.values(newErrors).some(error => error !== "");
+    return !Object.values(newErrors).some((error) => error !== "");
   };
 
   const handleMouseEnter = (icon) => {
@@ -155,18 +155,18 @@ const Contact = () => {
         default:
           break;
       }
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        [name]: error
+        [name]: error,
       }));
     }
   };
 
   const handleBlur = (e) => {
     const { name } = e.target;
-    setTouched(prev => ({
+    setTouched((prev) => ({
       ...prev,
-      [name]: true
+      [name]: true,
     }));
 
     // Validate on blur
@@ -184,20 +184,20 @@ const Contact = () => {
       default:
         break;
     }
-    setErrors(prev => ({
+    setErrors((prev) => ({
       ...prev,
-      [name]: error
+      [name]: error,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Mark all fields as touched
     setTouched({
       name: true,
       email: true,
-      message: true
+      message: true,
     });
 
     if (!validateForm()) {
@@ -208,11 +208,11 @@ const Contact = () => {
 
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       console.log("Form submitted:", formData);
       alert("Thank you for your message! I'll get back to you soon.");
-      
+
       // Reset form
       setFormData({ name: "", email: "", message: "" });
       setErrors({});
@@ -225,14 +225,43 @@ const Contact = () => {
   };
 
   const getInputClassName = (fieldName) => {
-    const baseClass = "w-full px-4 py-4 rounded-xl bg-gray-700/50 border text-white placeholder-gray-400 focus:outline-none transition-all duration-300 backdrop-blur-sm";
-    
+    const baseClass =
+      "w-full px-4 py-4 rounded-xl bg-gray-700/50 border text-white placeholder-gray-400 focus:outline-none transition-all duration-300 backdrop-blur-sm";
+
     if (errors[fieldName] && touched[fieldName]) {
       return `${baseClass} border-red-500/70 focus:ring-2 focus:ring-red-500 focus:border-red-500`;
-    } else if (!errors[fieldName] && touched[fieldName] && formData[fieldName]) {
+    } else if (
+      !errors[fieldName] &&
+      touched[fieldName] &&
+      formData[fieldName]
+    ) {
       return `${baseClass} border-green-500/70 focus:ring-2 focus:ring-green-500 focus:border-green-500`;
     } else {
       return `${baseClass} border-gray-600/50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500`;
+    }
+  };
+  const [result, setResult] = React.useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "4840d654-63cf-4be7-9460-1d12b95264d0");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
     }
   };
 
@@ -292,7 +321,12 @@ const Contact = () => {
               <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-blue-300 bg-clip-text text-transparent mb-8">
                 Send Me a Message
               </h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form
+                onSubmit={handleSubmit}
+                // action="https://api.web3forms.com/submit"
+                // method="POST"
+                className="space-y-6"
+              >
                 {/* Name Field */}
                 <div className="group">
                   <label
@@ -301,6 +335,7 @@ const Contact = () => {
                   >
                     Name *
                   </label>
+
                   <input
                     type="text"
                     id="name"
@@ -386,20 +421,24 @@ const Contact = () => {
                           {errors.message}
                         </p>
                       )}
-                      {!errors.message && touched.message && formData.message && (
-                        <p className="text-sm text-green-400 flex items-center">
-                          <span className="mr-1">✓</span>
-                          Message looks great!
-                        </p>
-                      )}
+                      {!errors.message &&
+                        touched.message &&
+                        formData.message && (
+                          <p className="text-sm text-green-400 flex items-center">
+                            <span className="mr-1">✓</span>
+                            Message looks great!
+                          </p>
+                        )}
                     </div>
-                    <span className={`text-sm ${
-                      formData.message.length > 1000 
-                        ? 'text-red-400' 
-                        : formData.message.length > 800 
-                        ? 'text-yellow-400' 
-                        : 'text-gray-400'
-                    }`}>
+                    <span
+                      className={`text-sm ${
+                        formData.message.length > 1000
+                          ? "text-red-400"
+                          : formData.message.length > 800
+                          ? "text-yellow-400"
+                          : "text-gray-400"
+                      }`}
+                    >
                       {formData.message.length}/1000
                     </span>
                   </div>
@@ -408,11 +447,15 @@ const Contact = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting || Object.values(errors).some(error => error !== "")}
+                  disabled={
+                    isSubmitting ||
+                    Object.values(errors).some((error) => error !== "")
+                  }
                   className={`relative overflow-hidden w-full py-4 px-6 font-bold rounded-xl shadow-lg transition-all duration-300 group transform ${
-                    isSubmitting || Object.values(errors).some(error => error !== "")
-                      ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
-                      : 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white hover:shadow-indigo-500/25 hover:scale-105'
+                    isSubmitting ||
+                    Object.values(errors).some((error) => error !== "")
+                      ? "bg-gray-600 text-gray-400 cursor-not-allowed"
+                      : "bg-gradient-to-r from-indigo-600 to-blue-600 text-white hover:shadow-indigo-500/25 hover:scale-105"
                   }`}
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2">
@@ -430,10 +473,17 @@ const Contact = () => {
                       </>
                     )}
                   </span>
-                  {!isSubmitting && !Object.values(errors).some(error => error !== "") && (
-                    <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                  )}
+                  {!isSubmitting &&
+                    !Object.values(errors).some((error) => error !== "") && (
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                    )}
                 </button>
+                {/* <input
+                  type="checkbox"
+                  name="botcheck"
+                  class="hidden"
+                  style="display: none;"
+                ></input> */}
               </form>
             </div>
           </div>
