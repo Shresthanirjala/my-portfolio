@@ -141,7 +141,7 @@ const Landing = () => {
                   strings: [
                     "Frontend Developer",
                     "Software Developer",
-                    "UI/UX Designer",
+                    "Content Creator"
                     
                   ],
                   autoStart: true,

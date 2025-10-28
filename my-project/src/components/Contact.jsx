@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaWhatsapp,
+  FaTiktok,
+  FaYoutube,
+} from "react-icons/fa";
 import { MdEmail, MdLocationOn } from "react-icons/md";
 
 const Contact = () => {
@@ -527,7 +533,7 @@ const Contact = () => {
                 <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-blue-300 bg-clip-text text-transparent mb-8">
                   Connect With Me
                 </h2>
-                <div className="flex flex-wrap justify-center gap-8 mt-8">
+                <div className="flex flex-wrap justify-center gap-4 mt-8">
                   {/* LinkedIn Icon */}
                   <a
                     href="https://www.linkedin.com/in/nirjala-shrestha-2b1624289/"
@@ -538,11 +544,11 @@ const Contact = () => {
                     className="group"
                   >
                     <div
-                      className={`p-7 rounded-xl bg-gray-700/50 backdrop-blur-sm border border-gray-600/50 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-blue-500 transition-all duration-500 transform group-hover:scale-110 group-hover:-rotate-3 group-hover:shadow-xl group-hover:shadow-blue-500/25 ${
+                      className={`p-4 rounded-xl bg-gray-700/50 backdrop-blur-sm border border-gray-600/50 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-blue-500 transition-all duration-500 transform group-hover:scale-110 group-hover:-rotate-3 group-hover:shadow-xl group-hover:shadow-blue-500/25 ${
                         activeIcon === "linkedin" ? "animate-pulse-fast" : ""
                       }`}
                     >
-                      <FaLinkedin className="h-9 w-9 text-indigo-400 group-hover:text-white transition-colors duration-300" />
+                      <FaLinkedin className="h-6 w-6 text-indigo-400 group-hover:text-white transition-colors duration-300" />
                     </div>
                     <span className="block text-sm mt-3 text-center text-gray-400 group-hover:text-indigo-300 transition-colors duration-300">
                       LinkedIn
@@ -559,11 +565,11 @@ const Contact = () => {
                     className="group"
                   >
                     <div
-                      className={`p-7 rounded-xl bg-gray-700/50 backdrop-blur-sm border border-gray-600/50 group-hover:bg-gradient-to-br group-hover:from-gray-600 group-hover:to-gray-500 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-xl group-hover:shadow-gray-500/25 ${
+                      className={`p-4 rounded-xl bg-gray-700/50 backdrop-blur-sm border border-gray-600/50 group-hover:bg-gradient-to-br group-hover:from-gray-600 group-hover:to-gray-500 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-xl group-hover:shadow-gray-500/25 ${
                         activeIcon === "github" ? "animate-pulse-fast" : ""
                       }`}
                     >
-                      <FaGithub className="h-9 w-9 text-indigo-400 group-hover:text-white transition-colors duration-300" />
+                      <FaGithub className="h-6 w-6 text-indigo-400 group-hover:text-white transition-colors duration-300" />
                     </div>
                     <span className="block text-sm mt-3 text-center text-gray-400 group-hover:text-indigo-300 transition-colors duration-300">
                       GitHub
@@ -581,14 +587,54 @@ const Contact = () => {
                     className="group"
                   >
                     <div
-                      className={`p-7 rounded-xl bg-gray-700/50 backdrop-blur-sm border border-gray-600/50 group-hover:bg-gradient-to-br group-hover:from-green-600 group-hover:to-green-500 transition-all duration-500 transform group-hover:scale-110 group-hover:-rotate-3 group-hover:shadow-xl group-hover:shadow-green-500/25 ${
+                      className={`p-4 rounded-xl bg-gray-700/50 backdrop-blur-sm border border-gray-600/50 group-hover:bg-gradient-to-br group-hover:from-green-600 group-hover:to-green-500 transition-all duration-500 transform group-hover:scale-110 group-hover:-rotate-3 group-hover:shadow-xl group-hover:shadow-green-500/25 ${
                         activeIcon === "whatsapp" ? "animate-pulse-fast" : ""
                       }`}
                     >
-                      <FaWhatsapp className="h-9 w-9 text-indigo-400 group-hover:text-white transition-colors duration-300" />
+                      <FaWhatsapp className="h-6 w-6 text-indigo-400 group-hover:text-white transition-colors duration-300" />
                     </div>
                     <span className="block text-sm mt-3 text-center text-gray-400 group-hover:text-indigo-300 transition-colors duration-300">
                       WhatsApp
+                    </span>
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@shecodes0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onMouseEnter={() => handleMouseEnter("tiktok")}
+                    onMouseLeave={handleMouseLeave}
+                    className="group"
+                  >
+                    <div
+                      className={`p-4 rounded-xl bg-gray-700/50 backdrop-blur-sm border border-gray-600/50 group-hover:bg-gradient-to-br group-hover:from-green-600 group-hover:to-green-500 transition-all duration-500 transform group-hover:scale-110 group-hover:-rotate-3 group-hover:shadow-xl group-hover:shadow-green-500/25 ${
+                        activeIcon === "tiktok" ? "animate-pulse-fast" : ""
+                      }`}
+                    >
+                      <FaTiktok className="h-6 w-6 text-indigo-400 group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <span className="block text-sm mt-3 text-center text-gray-400 group-hover:text-indigo-300 transition-colors duration-300">
+                      TikTok
+                    </span>
+                  </a>
+
+                  {/* YouTube Icon */}
+                  <a
+                    href="https://www.youtube.com/@shecodes0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onMouseEnter={() => handleMouseEnter("youtube")}
+                    onMouseLeave={handleMouseLeave}
+                    className="group"
+                  >
+                    <div
+                      className={`p-4 rounded-xl bg-gray-700/50 backdrop-blur-sm border border-gray-600/50 group-hover:bg-gradient-to-br group-hover:from-red-600 group-hover:to-red-500 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-xl group-hover:shadow-red-500/25 ${
+                        activeIcon === "youtube" ? "animate-pulse-fast" : ""
+                      }`}
+                    >
+                      <FaYoutube className="h-6 w-6 text-indigo-400 group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <span className="block text-sm mt-3 text-center text-gray-400 group-hover:text-indigo-300 transition-colors duration-300">
+                      YouTube
                     </span>
                   </a>
                 </div>
