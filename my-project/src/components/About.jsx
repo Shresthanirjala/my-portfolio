@@ -61,15 +61,19 @@ const About = () => {
   ];
 
   const experiences = [
-   
     {
       period: "2024-present",
-      role: "Frontend Developer",
+      role: "Full Stack Developer",
       company: "N9 Solution",
       description:
         "Collaborated on enterprise-level projects and API development.",
-      technologies: ["React ", "Nextjs ", "Javascript ", "Tailwind css", "API Development"],
-  
+      technologies: [
+        "React ",
+        "Nextjs ",
+        "Javascript ",
+        "Tailwind css",
+        "API Development",
+      ],
     },
   ];
 
@@ -99,7 +103,16 @@ const About = () => {
       date: "July 2025",
       award: "1st Runner Up",
       image: "/solana.jpg",
-      link: "https://x.com/nirjalas437/status/1940959805063286885", 
+      link: "https://x.com/nirjalas437/status/1940959805063286885",
+    },
+    {
+      id: 4,
+      title: "NATIONAL HACKATHON WINNER 2025",
+      description: "National Hackathon Winner of Code Fest",
+      date: "2025",
+      award: "2nd Runner Up",
+      image: "/cfc.jpeg",
+      link: "https://x.com/nirjalas437/status/1940959805063286885",
     },
   ];
 
@@ -116,7 +129,6 @@ const About = () => {
     >
       {/* Optimized Magic Cursor */}
       <div className="fixed inset-0 pointer-events-none z-50">
-       
         <div
           className="absolute w-8 h-8 rounded-full will-change-transform"
           style={{
@@ -240,14 +252,10 @@ const About = () => {
             </h1>
           </div>
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 animate-fade-in-up-delay">
-            I'm a{" "}
-            <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text font-semibold animate-gradient-smooth">
-              Frontend Developer
-            </span>{" "}
-            and a final-year BCA student with a strong passion for building
-            efficient, scalable web solutions. With hands-on experience in both
-            frontend technologies, I enjoy turning ideas into
-            reality through clean, user-focused design and robust engineering.
+            I'm a and a final-year BCA student with a strong passion for
+            building efficient, scalable web solutions. With hands-on experience
+            in both frontend technologies, I enjoy turning ideas into reality
+            through clean, user-focused design and robust engineering.
           </p>
           <div className="flex items-center justify-center gap-4 text-sm text-gray-400 animate-fade-in-up-delay-2">
             <div className="flex items-center gap-2">
@@ -343,9 +351,7 @@ const About = () => {
             <h3 className="text-3xl font-bold text-white mb-3">
               Achievements & Recognition
             </h3>
-            <p className="text-gray-400">
-              Key milestones in my tech journey
-            </p>
+            <p className="text-gray-400">Key milestones in my tech journey</p>
           </div>
 
           <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 max-w-6xl mx-auto">
@@ -367,8 +373,18 @@ const About = () => {
                     {/* Click indicator */}
                     <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="w-8 h-8 bg-blue-500/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-blue-500/30">
-                        <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        <svg
+                          className="w-4 h-4 text-blue-400"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
                         </svg>
                       </div>
                     </div>

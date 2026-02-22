@@ -1,6 +1,6 @@
 const projects = [
   {
-    id: 2,
+    id: 1,
     title: "E-commerce Pet Store",
     shortdescription:
       "A pet store web app built with PHP, HTML, CSS, and JavaScript, allowing users to browse and purchase dog and cat breeds with detailed info.",
@@ -15,7 +15,7 @@ const projects = [
     gallery: ["/petstore.png"],
   },
   {
-    id: 3,
+    id: 2,
     title: "Chat Application",
     shortdescription:
       "A real-time chat app built with Node.js, React, and Tailwind CSS, featuring user authentication, responsive design, and smooth animated interactions for seamless communication.",
@@ -30,24 +30,9 @@ const projects = [
     featured: true,
     gallery: ["/chat1.png"],
   },
-  {
-    id: 4,
-    title: "E_shop",
-    shortdescription:
-      "A frontend-only e-commerce site built with React, Tailwind CSS, and JavaScript, featuring a responsive design for browsing products like watches, laptops, and headphones.",
-
-    image: "/eshop2.png",
-    tags: ["React", "JavaScript", "Tailwind CSS"],
-
-    link: "https://e-shop-eight-sepia.vercel.app/",
-
-    githubUrl: "https://github.com/username/e-shop",
-    date: "2024",
-    gallery: ["/eshop2.png"],
-  },
 
   {
-    id: 5,
+    id: 3,
     title: "AI-Powered Application",
     shortdescription:
       "SpeakEasyAI is an AI-powered app built with Next.js, Django, and OpenAI that transcribes speech into real-time subtitles.",
@@ -57,8 +42,20 @@ const projects = [
     gallery: ["/speakeasyai.png"],
   },
 
+  // {
+  //   id: 4,
+  //   title: "Trust Chain",
+  //   shortdescription:
+  //     "Verify real-world skills using AI and blockchain. Analyzes resumes and GitHub profiles to generate verifiable skill reports stored on Walrus decentralized storage. Built with zkLogin for seamless Web3 authentication.",
+
+  //   image: "/Autisahara.png",
+  //   githubUrl: "#",
+  //   liveUrl: "https://neurocare-steel.vercel.app",
+  //   tags: ["Django", "Flutter", "React", "Typescript"],
+  // },
+
   {
-    id: 6,
+    id: 5,
     title: "Job Portal System",
     shortdescription:
       "A MERN-stack powered Job Portal where employers can post jobs, job seekers can apply, and admins can manage the platform with ease.",
@@ -67,6 +64,17 @@ const projects = [
     githubUrl: "https://github.com/username/speakeasyai",
     liveUrl: "https://nirjalajobportal.vercel.app/",
     tags: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS"],
+  },
+  {
+    id: 6,
+    title: "Auti Sahara",
+    shortdescription:
+      "Early autism screening platform for children aged 16-30 months. Built both web and mobile apps with M-CHAT-R/F questionnaire, video upload for behavioral analysis, and a dedicated doctor dashboard for professional assessment. Built at Nepal's biggest hackathon.",
+
+    image: "/Autisahara.png",
+    githubUrl: "#",
+    liveUrl: "https://neurocare-steel.vercel.app",
+    tags: ["Django", "Flutter", "React", "Typescript"],
   },
 ];
 

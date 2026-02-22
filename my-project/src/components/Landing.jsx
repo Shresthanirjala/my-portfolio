@@ -65,7 +65,7 @@ const Landing = () => {
           (particle.y * canvas.height) / 100,
           particle.size,
           0,
-          Math.PI * 2
+          Math.PI * 2,
         );
         ctx.fillStyle = particle.color;
         ctx.fill();
@@ -138,12 +138,7 @@ const Landing = () => {
             <div className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-tight">
               <Typewriter
                 options={{
-                  strings: [
-                    "Frontend Developer",
-                    "Software Developer",
-                    "Content Creator"
-                    
-                  ],
+                  strings: ["Full Stack Developer", , "Content Creator"],
                   autoStart: true,
                   loop: true,
                   wrapperClassName:
@@ -156,10 +151,10 @@ const Landing = () => {
             </div>
 
             <p className="text-lg text-gray-400 leading-relaxed max-w-2xl">
-              Crafting digital experiences through innovative software development
-              and thoughtful design. I specialize in building scalable
-              applications with modern technologies, focusing on performance,
-              accessibility, and user experience.
+              Crafting digital experiences through innovative software
+              development and thoughtful design. I specialize in building
+              scalable applications with modern technologies, focusing on
+              performance, accessibility, and user experience.
             </p>
 
             <div className="flex flex-wrap gap-6 justify-center lg:justify-start text-sm text-gray-300 mt-4">
@@ -498,8 +493,9 @@ const Landing = () => {
 
         /* Smooth transitions for all interactive elements */
         * {
-          transition-property: transform, opacity, background-color,
-            border-color, color, box-shadow;
+          transition-property:
+            transform, opacity, background-color, border-color, color,
+            box-shadow;
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         }
       `}</style>
